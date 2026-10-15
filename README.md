@@ -8,6 +8,8 @@ El videojuego representa la experiencia de adaptación de un estudiante de prime
 
 A medida que avanza la experiencia, la presión y la desorientación pueden afectar progresivamente el estado emocional del protagonista. El sistema central del videojuego representa la transición entre **Estrés y Ansiedad**, generando alteraciones en la interfaz, el audio, la iluminación y la percepción del entorno.
 
+El proyecto busca combinar una experiencia de orientación universitaria con.
+
 El proyecto busca combinar una experiencia de orientación universitaria con elementos de exploración, tensión y terror psicológico.
 
 ---
