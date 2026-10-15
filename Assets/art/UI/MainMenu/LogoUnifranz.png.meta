@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: bad3e530a025ba54d827a2bf0b54cfe2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8466778027722448621
+    second: LogoUnifranz_0
+  - first:
+      213: 8621118859394997163
+    second: LogoUnifranz_1
+  - first:
+      213: -1872500946495841105
+    second: LogoUnifranz_2
+  - first:
+      213: 4824284249703781531
+    second: LogoUnifranz_3
+  - first:
+      213: 6648658710307866369
+    second: LogoUnifranz_4
+  - first:
+      213: 5809224587759842387
+    second: LogoUnifranz_5
+  - first:
+      213: -6998930763730976503
+    second: LogoUnifranz_6
+  - first:
+      213: 4097971289208331311
+    second: LogoUnifranz_7
+  - first:
+      213: 1197521838309322698
+    second: LogoUnifranz_8
+  - first:
+      213: 6917171310042055551
+    second: LogoUnifranz_9
+  - first:
+      213: 2218507742169394564
+    second: LogoUnifranz_10
+  - first:
+      213: -3991108279462079816
+    second: LogoUnifranz_11
+  - first:
+      213: 6009872623880531866
+    second: LogoUnifranz_12
+  - first:
+      213: 7837032241939583693
+    second: LogoUnifranz_13
+  - first:
+      213: -7116126891952096833
+    second: LogoUnifranz_14
+  - first:
+      213: -3357063661421542020
+    second: LogoUnifranz_15
+  - first:
+      213: 3024717076408141426
+    second: LogoUnifranz_16
+  - first:
+      213: 9150030889991742338
+    second: LogoUnifranz_17
+  - first:
+      213: -8148098111011991847
+    second: LogoUnifranz_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LogoUnifranz_0
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 251
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31165812e36ff7a80800000000000000
+      internalID: -8466778027722448621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 259
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: babd8ac0ded54a770800000000000000
+      internalID: 8621118859394997163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_2
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 263
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac58826f4a8306e0800000000000000
+      internalID: -1872500946495841105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 271
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b941b1707fc43f240800000000000000
+      internalID: 4824284249703781531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_4
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 271
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10705b4fed7c44c50800000000000000
+      internalID: 6648658710307866369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_5
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 257
+        width: 59
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354f3e5ebf28e9050800000000000000
+      internalID: 5809224587759842387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_6
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 227
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90103446d8dcede90800000000000000
+      internalID: -6998930763730976503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_7
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 217
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c1301fc2beed830800000000000000
+      internalID: 4097971289208331311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 81
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf233764c37e9010800000000000000
+      internalID: 1197521838309322698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_9
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 115
+        width: 78
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73849168aabeff50800000000000000
+      internalID: 6917171310042055551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_10
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 115
+        width: 20
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48de57f8909b9ce10800000000000000
+      internalID: 2218507742169394564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_11
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 117
+        width: 72
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2da866a2cbc98c0800000000000000
+      internalID: -3991108279462079816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_12
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 115
+        width: 170
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f6ebb4f4b576350800000000000000
+      internalID: 6009872623880531866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_13
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 115
+        width: 79
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc2971a3d4bb2cc60800000000000000
+      internalID: 7837032241939583693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_14
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 117
+        width: 74
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9379c6b407e3d90800000000000000
+      internalID: -7116126891952096833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_15
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 171
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c75c89ce2605961d0800000000000000
+      internalID: -3357063661421542020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 642
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2768d55c724f9f920800000000000000
+      internalID: 3024717076408141426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_17
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 34
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2832fc19d907bfe70800000000000000
+      internalID: 9150030889991742338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LogoUnifranz_18
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 75
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de491240f32cee80800000000000000
+      internalID: -8148098111011991847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      LogoUnifranz_0: -8466778027722448621
+      LogoUnifranz_1: 8621118859394997163
+      LogoUnifranz_10: 2218507742169394564
+      LogoUnifranz_11: -3991108279462079816
+      LogoUnifranz_12: 6009872623880531866
+      LogoUnifranz_13: 7837032241939583693
+      LogoUnifranz_14: -7116126891952096833
+      LogoUnifranz_15: -3357063661421542020
+      LogoUnifranz_16: 3024717076408141426
+      LogoUnifranz_17: 9150030889991742338
+      LogoUnifranz_18: -8148098111011991847
+      LogoUnifranz_2: -1872500946495841105
+      LogoUnifranz_3: 4824284249703781531
+      LogoUnifranz_4: 6648658710307866369
+      LogoUnifranz_5: 5809224587759842387
+      LogoUnifranz_6: -6998930763730976503
+      LogoUnifranz_7: 4097971289208331311
+      LogoUnifranz_8: 1197521838309322698
+      LogoUnifranz_9: 6917171310042055551
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
