@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 234ae9f10db21249f9e43b2ea9e1cb4f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5820377320663789745
+    second: titulo_hoja_8cuadros_x4_0
+  - first:
+      213: 4245446101283659602
+    second: titulo_hoja_8cuadros_x4_1
+  - first:
+      213: -1128209418847166710
+    second: titulo_hoja_8cuadros_x4_2
+  - first:
+      213: 4166503201576482498
+    second: titulo_hoja_8cuadros_x4_3
+  - first:
+      213: 2040653490148049811
+    second: titulo_hoja_8cuadros_x4_4
+  - first:
+      213: -8103772002807632490
+    second: titulo_hoja_8cuadros_x4_5
+  - first:
+      213: -2648400404029765005
+    second: titulo_hoja_8cuadros_x4_6
+  - first:
+      213: 8687587284783583603
+    second: titulo_hoja_8cuadros_x4_7
+  - first:
+      213: -7126135371793106044
+    second: titulo_hoja_8cuadros_x4_8
+  - first:
+      213: -3774997479824456390
+    second: titulo_hoja_8cuadros_x4_9
+  - first:
+      213: 3424252414892660108
+    second: titulo_hoja_8cuadros_x4_10
+  - first:
+      213: 6579362873933568150
+    second: titulo_hoja_8cuadros_x4_11
+  - first:
+      213: -8389255519386894144
+    second: titulo_hoja_8cuadros_x4_12
+  - first:
+      213: -4120730483754425421
+    second: titulo_hoja_8cuadros_x4_13
+  - first:
+      213: -7744389036015390204
+    second: titulo_hoja_8cuadros_x4_14
+  - first:
+      213: 1780921854509545853
+    second: titulo_hoja_8cuadros_x4_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f481f1aadd93fa0800000000000000
+      internalID: -5820377320663789745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_1
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f541c5cbadaea30800000000000000
+      internalID: 4245446101283659602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_2
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f5d55d28bc750f0800000000000000
+      internalID: -1128209418847166710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_3
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c67e75369462d930800000000000000
+      internalID: 4166503201576482498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_4
+      rect:
+        serializedVersion: 2
+        x: 2695
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3938fe5998bd15c10800000000000000
+      internalID: 2040653490148049811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_5
+      rect:
+        serializedVersion: 2
+        x: 3367
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d25ef8c4e998f80800000000000000
+      internalID: -8103772002807632490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_6
+      rect:
+        serializedVersion: 2
+        x: 4039
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a0ec64dddfe3bd0800000000000000
+      internalID: -2648400404029765005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_7
+      rect:
+        serializedVersion: 2
+        x: 4711
+        y: 131
+        width: 622
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 371d9b05b92809870800000000000000
+      internalID: 8687587284783583603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 526
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48bfcee92a1ea1d90800000000000000
+      internalID: -7126135371793106044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_9
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 35
+        width: 526
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35811bfac38c9bc0800000000000000
+      internalID: -3774997479824456390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_10
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 35
+        width: 526
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8553facd63658f20800000000000000
+      internalID: 3424252414892660108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_11
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 35
+        width: 530
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6981435cca79e4b50800000000000000
+      internalID: 6579362873933568150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_12
+      rect:
+        serializedVersion: 2
+        x: 2723
+        y: 35
+        width: 526
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c085f4ad80639b80800000000000000
+      internalID: -8389255519386894144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_13
+      rect:
+        serializedVersion: 2
+        x: 3395
+        y: 35
+        width: 526
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b3a1b4257930d6c0800000000000000
+      internalID: -4120730483754425421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_14
+      rect:
+        serializedVersion: 2
+        x: 4067
+        y: 39
+        width: 526
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4027fd90437668490800000000000000
+      internalID: -7744389036015390204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_hoja_8cuadros_x4_15
+      rect:
+        serializedVersion: 2
+        x: 4735
+        y: 35
+        width: 530
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7975ceadfa17b810800000000000000
+      internalID: 1780921854509545853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      titulo_hoja_8cuadros_x4_0: -5820377320663789745
+      titulo_hoja_8cuadros_x4_1: 4245446101283659602
+      titulo_hoja_8cuadros_x4_10: 3424252414892660108
+      titulo_hoja_8cuadros_x4_11: 6579362873933568150
+      titulo_hoja_8cuadros_x4_12: -8389255519386894144
+      titulo_hoja_8cuadros_x4_13: -4120730483754425421
+      titulo_hoja_8cuadros_x4_14: -7744389036015390204
+      titulo_hoja_8cuadros_x4_15: 1780921854509545853
+      titulo_hoja_8cuadros_x4_2: -1128209418847166710
+      titulo_hoja_8cuadros_x4_3: 4166503201576482498
+      titulo_hoja_8cuadros_x4_4: 2040653490148049811
+      titulo_hoja_8cuadros_x4_5: -8103772002807632490
+      titulo_hoja_8cuadros_x4_6: -2648400404029765005
+      titulo_hoja_8cuadros_x4_7: 8687587284783583603
+      titulo_hoja_8cuadros_x4_8: -7126135371793106044
+      titulo_hoja_8cuadros_x4_9: -3774997479824456390
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
