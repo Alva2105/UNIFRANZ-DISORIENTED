@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Videojuego en **Unity 6.3 LTS (6000.3.16f1)**, 2D Side-Scrolling Pixel Art.
+**UNIFRANZ-DISORIENTED**: videojuego en **Unity 6.3 LTS (6000.3.16f1)**, 2D Side-Scrolling Pixel Art.
 
 Juego de adaptación universitaria con progresión por **5 hitos** y un sistema de **Estrés/Ansiedad** que altera visual y auditivamente el entorno.
 
@@ -13,6 +13,7 @@ Juego de adaptación universitaria con progresión por **5 hitos** y un sistema 
 - Input System
 - Sistema de Estrés/Ansiedad
 - Sistema de guardado
+- Menú Principal (Hito 3, punto 1): escena, Canvas, título y botones. La navegación entre escenas (botones Jugar/Salir) la implementa otro integrante.
 
 ## Convenciones de carpetas
 
@@ -22,6 +23,9 @@ Juego de adaptación universitaria con progresión por **5 hitos** y un sistema 
 - `Assets/Scripts/Camera/`
 - `Assets/Scripts/Stress/`
 - `Assets/Scripts/SaveSystem/`
+- `Assets/Scripts/UI/` (efectos del menú; `UI/Editor/` para herramientas de Editor)
+
+Assets de interfaz en `Assets/Art/UI/` (`MainMenu/`, `Fonts/`). Escena del menú: `Assets/Scenes/MainMenu.unity`.
 
 ## Decisiones técnicas
 
@@ -42,4 +46,5 @@ Juego de adaptación universitaria con progresión por **5 hitos** y un sistema 
   - `Assets/Scripts/Camera`
   - `Assets/Scripts/Stress`
   - `Assets/Scripts/SaveSystem`
+  - `Assets/Scripts/UI` y `Assets/Art/UI` (solo para el menú)
 - Leer solo los archivos estrictamente necesarios para cada tarea, no todo el proyecto.
