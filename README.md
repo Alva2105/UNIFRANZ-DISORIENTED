@@ -1,5 +1,5 @@
 # UNIFRANZ: DESORIENTED
-proyect
+proyects
 ## Descripción s
 
 **UNIFRANZ: DESORIENTED** es un videojuego de aventura y exploración en **2D Side-Scrolling**, desarrollado como parte de la materia de **Programación Gráfica y Multimedia I** de la carrera de Ingeniería de Sistemas de UNIFRANZ.
