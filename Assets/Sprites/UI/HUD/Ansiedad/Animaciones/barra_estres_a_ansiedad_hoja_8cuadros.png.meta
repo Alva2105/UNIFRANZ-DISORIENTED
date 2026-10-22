@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 102c01001cc2763cb8e89c65deb9b1c0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3897904893623371908
+    second: barra_estres_a_ansiedad_hoja_8cuadros_0
+  - first:
+      213: -1431278073429197445
+    second: barra_estres_a_ansiedad_hoja_8cuadros_1
+  - first:
+      213: -4506776375435142797
+    second: barra_estres_a_ansiedad_hoja_8cuadros_2
+  - first:
+      213: 587733737636381319
+    second: barra_estres_a_ansiedad_hoja_8cuadros_3
+  - first:
+      213: -6302039442333481939
+    second: barra_estres_a_ansiedad_hoja_8cuadros_4
+  - first:
+      213: 6978904369758401018
+    second: barra_estres_a_ansiedad_hoja_8cuadros_5
+  - first:
+      213: 1653663928054491304
+    second: barra_estres_a_ansiedad_hoja_8cuadros_6
+  - first:
+      213: -4251534167924301382
+    second: barra_estres_a_ansiedad_hoja_8cuadros_7
+  - first:
+      213: -2838641146174384019
+    second: barra_estres_a_ansiedad_hoja_8cuadros_8
+  - first:
+      213: 8880257877862466902
+    second: barra_estres_a_ansiedad_hoja_8cuadros_9
+  - first:
+      213: -7657721935446632567
+    second: barra_estres_a_ansiedad_hoja_8cuadros_10
+  - first:
+      213: -2648300837803861796
+    second: barra_estres_a_ansiedad_hoja_8cuadros_11
+  - first:
+      213: 2418210143226314604
+    second: barra_estres_a_ansiedad_hoja_8cuadros_12
+  - first:
+      213: 5419491949384389308
+    second: barra_estres_a_ansiedad_hoja_8cuadros_13
+  - first:
+      213: 4545267442540274377
+    second: barra_estres_a_ansiedad_hoja_8cuadros_14
+  - first:
+      213: 1867905719461860710
+    second: barra_estres_a_ansiedad_0
+  - first:
+      213: -4165198392025205436
+    second: barra_estres_a_ansiedad_1
+  - first:
+      213: 509480533186943853
+    second: barra_estres_a_ansiedad_2
+  - first:
+      213: -5200078821573265029
+    second: barra_estres_a_ansiedad_3
+  - first:
+      213: 6428160855401155410
+    second: barra_estres_a_ansiedad_4
+  - first:
+      213: 8039734837401470193
+    second: barra_estres_a_ansiedad_5
+  - first:
+      213: 4266100524524905079
+    second: barra_estres_a_ansiedad_6
+  - first:
+      213: -2029199664013265437
+    second: barra_estres_a_ansiedad_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665d172fa522ce910800000000000000
+      internalID: 1867905719461860710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4453f40712e3236c0800000000000000
+      internalID: -4165198392025205436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b959878d9021700800000000000000
+      internalID: 509480533186943853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79f71cecdb95d7b0800000000000000
+      internalID: -5200078821573265029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25bc1497d3a653950800000000000000
+      internalID: 6428160855401155410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4c5affc30e29f60800000000000000
+      internalID: 8039734837401470193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7722a6403db343b30800000000000000
+      internalID: 4266100524524905079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_estres_a_ansiedad_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5b52028a5d6d3e0800000000000000
+      internalID: -2029199664013265437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      barra_estres_a_ansiedad_0: 1867905719461860710
+      barra_estres_a_ansiedad_1: -4165198392025205436
+      barra_estres_a_ansiedad_2: 509480533186943853
+      barra_estres_a_ansiedad_3: -5200078821573265029
+      barra_estres_a_ansiedad_4: 6428160855401155410
+      barra_estres_a_ansiedad_5: 8039734837401470193
+      barra_estres_a_ansiedad_6: 4266100524524905079
+      barra_estres_a_ansiedad_7: -2029199664013265437
+      barra_estres_a_ansiedad_hoja_8cuadros_0: 3897904893623371908
+      barra_estres_a_ansiedad_hoja_8cuadros_1: -1431278073429197445
+      barra_estres_a_ansiedad_hoja_8cuadros_10: -7657721935446632567
+      barra_estres_a_ansiedad_hoja_8cuadros_11: -2648300837803861796
+      barra_estres_a_ansiedad_hoja_8cuadros_12: 2418210143226314604
+      barra_estres_a_ansiedad_hoja_8cuadros_13: 5419491949384389308
+      barra_estres_a_ansiedad_hoja_8cuadros_14: 4545267442540274377
+      barra_estres_a_ansiedad_hoja_8cuadros_2: -4506776375435142797
+      barra_estres_a_ansiedad_hoja_8cuadros_3: 587733737636381319
+      barra_estres_a_ansiedad_hoja_8cuadros_4: -6302039442333481939
+      barra_estres_a_ansiedad_hoja_8cuadros_5: 6978904369758401018
+      barra_estres_a_ansiedad_hoja_8cuadros_6: 1653663928054491304
+      barra_estres_a_ansiedad_hoja_8cuadros_7: -4251534167924301382
+      barra_estres_a_ansiedad_hoja_8cuadros_8: -2838641146174384019
+      barra_estres_a_ansiedad_hoja_8cuadros_9: 8880257877862466902
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

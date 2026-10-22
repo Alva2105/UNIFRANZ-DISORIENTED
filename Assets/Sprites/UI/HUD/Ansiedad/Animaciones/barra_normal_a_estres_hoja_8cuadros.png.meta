@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: 3ce4faad97feaa99d94330be06d2d18e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4522523384758443789
+    second: barra_normal_a_estres_hoja_8cuadros_0
+  - first:
+      213: 3878247883904229428
+    second: barra_normal_a_estres_hoja_8cuadros_1
+  - first:
+      213: -3212153015263402725
+    second: barra_normal_a_estres_hoja_8cuadros_2
+  - first:
+      213: 4923917809379985685
+    second: barra_normal_a_estres_hoja_8cuadros_3
+  - first:
+      213: -5447205274987611852
+    second: barra_normal_a_estres_hoja_8cuadros_4
+  - first:
+      213: -8463723959021299079
+    second: barra_normal_a_estres_hoja_8cuadros_5
+  - first:
+      213: -5459882917022356928
+    second: barra_normal_a_estres_hoja_8cuadros_6
+  - first:
+      213: 5126432095427364097
+    second: barra_normal_a_estres_hoja_8cuadros_7
+  - first:
+      213: 8770216116555209915
+    second: barra_normal_a_estres_0
+  - first:
+      213: 1480780163582073739
+    second: barra_normal_a_estres_1
+  - first:
+      213: -3147606578115062963
+    second: barra_normal_a_estres_2
+  - first:
+      213: -8033425237403433522
+    second: barra_normal_a_estres_3
+  - first:
+      213: 600516049559904216
+    second: barra_normal_a_estres_4
+  - first:
+      213: -7463646177740536330
+    second: barra_normal_a_estres_5
+  - first:
+      213: -2510150159822467291
+    second: barra_normal_a_estres_6
+  - first:
+      213: 7584335887422271410
+    second: barra_normal_a_estres_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: barra_normal_a_estres_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbcdda6671116b970800000000000000
+      internalID: 8770216116555209915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b11c896b9cc8410800000000000000
+      internalID: 1480780163582073739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43d4c27e747154d0800000000000000
+      internalID: -3147606578115062963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_3
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec509ea3f4a838090800000000000000
+      internalID: -8033425237403433522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df50f75a26755800800000000000000
+      internalID: 600516049559904216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5c29e685dcb6890800000000000000
+      internalID: -7463646177740536330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f44ee9ab72a2dd0800000000000000
+      internalID: -2510150159822467291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barra_normal_a_estres_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 80
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf2d0b5e49f04960800000000000000
+      internalID: 7584335887422271410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      barra_normal_a_estres_0: 8770216116555209915
+      barra_normal_a_estres_1: 1480780163582073739
+      barra_normal_a_estres_2: -3147606578115062963
+      barra_normal_a_estres_3: -8033425237403433522
+      barra_normal_a_estres_4: 600516049559904216
+      barra_normal_a_estres_5: -7463646177740536330
+      barra_normal_a_estres_6: -2510150159822467291
+      barra_normal_a_estres_7: 7584335887422271410
+      barra_normal_a_estres_hoja_8cuadros_0: -4522523384758443789
+      barra_normal_a_estres_hoja_8cuadros_1: 3878247883904229428
+      barra_normal_a_estres_hoja_8cuadros_2: -3212153015263402725
+      barra_normal_a_estres_hoja_8cuadros_3: 4923917809379985685
+      barra_normal_a_estres_hoja_8cuadros_4: -5447205274987611852
+      barra_normal_a_estres_hoja_8cuadros_5: -8463723959021299079
+      barra_normal_a_estres_hoja_8cuadros_6: -5459882917022356928
+      barra_normal_a_estres_hoja_8cuadros_7: 5126432095427364097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
