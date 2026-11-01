@@ -1,14 +1,12 @@
 # UNIFRANZ: DESORIENTED
-proyects
-## Descripción s
+
+## Descripción
 
 **UNIFRANZ: DESORIENTED** es un videojuego de aventura y exploración en **2D Side-Scrolling**, desarrollado como parte de la materia de **Programación Gráfica y Multimedia I** de la carrera de Ingeniería de Sistemas de UNIFRANZ.
 
 El videojuego representa la experiencia de adaptación de un estudiante de primer semestre durante su primer día en la universidad. El jugador deberá recorrer diferentes espacios del **Bloque A de UNIFRANZ La Paz**, interactuar con el entorno y completar una Ruta de Inducción compuesta por cinco hitos principales.
 
 A medida que avanza la experiencia, la presión y la desorientación pueden afectar progresivamente el estado emocional del protagonista. El sistema central del videojuego representa la transición entre **Estrés y Ansiedad**, generando alteraciones en la interfaz, el audio, la iluminación y la percepción del entorno.
-
-El proyecto busca combinar una experiencia de orientación universitaria con.
 
 El proyecto busca combinar una experiencia de orientación universitaria con elementos de exploración, tensión y terror psicológico.
 
@@ -25,14 +23,23 @@ La jugabilidad se desarrolla mediante una perspectiva **2D Side-Scrolling**, per
 
 ---
 
-## Plataforma objetivo
+## Plataformas
 
-El videojuego está diseñado para ser ejecutado en:
+El videojuego se compila para:
 
-- **PC**
-- **Sistema operativo Windows**
+- **Windows** (ejecutable para PC)
+- **Android** (APK, en orientación horizontal)
 
-La versión final del proyecto será compilada como un ejecutable para PC.
+### Controles
+
+| Acción | Windows | Android |
+|---|---|---|
+| Moverse | A/D o flechas | Botones `<` y `>` |
+| Correr | Shift | Botón `CORRER` |
+| Interactuar y avanzar diálogos | E o Espacio | Botón `USAR` |
+| Pausar | Escape | Botón `II` |
+
+Los menús se usan con el mouse en Windows y tocando la pantalla en Android.
 
 ---
 
@@ -99,29 +106,26 @@ El proyecto utiliza las siguientes tecnologías y herramientas:
 
 # Estado del proyecto
 
-## Prototipo inicial en desarrollo
+## Prototipo jugable en desarrollo
 
-Actualmente, el proyecto se encuentra en su fase inicial de desarrollo.
+Actualmente se puede jugar el primer nivel, ubicado en el piso 2 del Bloque A.
 
-Durante esta etapa se trabaja principalmente en:
+Ya está implementado:
 
-- Organización del repositorio.
-- Configuración inicial del proyecto en Unity.
-- Organización de la estructura de carpetas.
-- Creación de la escena inicial.
-- Incorporación de assets iniciales.
-- Construcción del escenario base mediante Tiles y Tilemaps.
-- Implementación progresiva de los sistemas fundamentales.
+- Menú principal con Jugar, Opciones, Créditos y Salir.
+- Elección entre los dos personajes jugables.
+- Pasillo continuo del piso 2 con aulas, mural y escaleras interactivas.
+- Primer hito de inducción: encontrar el aula 207.
+- Sistema de Estrés y Ansiedad, con cambios en el escenario, los personajes y el HUD.
+- Diálogos, menú de pausa y configuración.
+- Pantallas de victoria y de crisis de ansiedad.
+- Exportación a Windows y Android, con controles táctiles en Android.
 
-Las siguientes etapas incorporarán progresivamente:
+Las siguientes etapas incorporarán:
 
-- Movimiento completo del personaje.
-- Sistema de interacción.
-- NPCs y diálogos.
-- Cinco hitos de inducción.
+- Los hitos de inducción restantes.
 - Minijuegos.
-- Sistema de Estrés y Ansiedad.
-- Alteraciones visuales y auditivas.
+- Alteraciones auditivas.
 - Integración general.
 - Pruebas de jugabilidad y corrección de errores.
 
@@ -129,26 +133,30 @@ Las siguientes etapas incorporarán progresivamente:
 
 ## Estructura del proyecto
 
-El proyecto se encuentra organizado siguiendo una estructura básica para separar los recursos gráficos, escenas y scripts utilizados durante el desarrollo.
+El proyecto separa los recursos gráficos, las escenas y los scripts usados durante el desarrollo.
 
 ```text
 Assets/
 │
-├── art/
-│   ├── Backgrounds/
-│   │   └── Fondos y recursos visuales de los escenarios.
-│   │
-│   ├── Tiles/
-│   │   └── Sprites y elementos utilizados para construir pisos,
-│   │       plataformas y estructuras del escenario.
-│   │
-│   └── Characters/
-│       └── Sprites y recursos gráficos de los personajes.
+├── Animaciones/        Clips y Animator de los personajes y del HUD.
+│
+├── art/                Fondos, tiles, personajes base y UI del menú principal.
 │
 ├── Scenes/
-│   └── Nivel01.unity
-│       └── Escena principal del prototipo inicial.
+│   ├── MainMenu.unity  Menú principal.
+│   ├── Piso2.unity     Primer nivel jugable.
+│   └── Nivel01.unity   Escena del prototipo inicial.
 │
-└── Scripts/
-    └── Scripts en C# utilizados para implementar las mecánicas
-        y sistemas del videojuego.
+├── Scripts/
+│   ├── Build/          Exportación a Windows y Android.
+│   ├── Gameplay/       Interacciones, diálogos y flujo del nivel.
+│   ├── Player/         Movimiento, personajes y controles.
+│   ├── SaveSystem/     Configuración guardada.
+│   ├── Stress/         Sistema de Estrés y Ansiedad.
+│   └── UI/             Menús, HUD y pausa.
+│
+└── Sprites/
+    ├── Escenario/      Pasillos del piso 2 en sus tres estados.
+    ├── Personajes/     Hojas de los personajes en sus tres estados.
+    └── UI/             Menús, laptop de pausa y barra de ansiedad.
+```
