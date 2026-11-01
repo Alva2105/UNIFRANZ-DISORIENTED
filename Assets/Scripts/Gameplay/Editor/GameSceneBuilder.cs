@@ -423,6 +423,7 @@ public static class GameSceneBuilder
         SetField(box, "panel", panel.gameObject);
         SetField(box, "speakerText", speaker);
         SetField(box, "bodyText", body);
+        SetField(box, "continueHint", hint);
         SetField(box, "player", player);
         return box;
     }

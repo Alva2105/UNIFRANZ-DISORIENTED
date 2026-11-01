@@ -1,12 +1,11 @@
 using TMPro;
 using UnityEngine;
 
-// Aviso "[E] Hablar" de la UI que sigue a un punto del mundo. Va en un Canvas
+// Aviso "[E] Hablar" (en Android "[USAR] Hablar") de la UI que sigue a un punto del mundo. Va en un Canvas
 // Screen Space - Overlay.
 public class InteractionPrompt : MonoBehaviour
 {
     [SerializeField] private TMP_Text label;
-    [SerializeField] private string keyHint = "[E]";
 
     private Camera mainCamera;
     private Vector3 worldPosition;
@@ -20,7 +19,7 @@ public class InteractionPrompt : MonoBehaviour
     public void Show(string action, Vector3 position)
     {
         worldPosition = position;
-        label.text = keyHint + " " + action;
+        label.text = "[" + ControlPlatform.InteractHint + "] " + action;
         gameObject.SetActive(true);
         Follow();
     }

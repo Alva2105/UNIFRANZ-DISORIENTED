@@ -846,6 +846,7 @@ MonoBehaviour:
   panel: {fileID: 2139447115}
   speakerText: {fileID: 2039126022}
   bodyText: {fileID: 900263863}
+  continueHint: {fileID: 360803397}
   player: {fileID: 1915416644}
   charsPerSecond: 45
 --- !u!1 &324126368
@@ -4481,7 +4482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionPrompt
   label: {fileID: 1730602013}
-  keyHint: '[E]'
 --- !u!1 &1289358712
 GameObject:
   m_ObjectHideFlags: 0
