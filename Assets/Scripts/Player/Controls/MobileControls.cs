@@ -67,8 +67,9 @@ public class MobileControls : MonoBehaviour
         bool levelOver = LevelFlow.Instance != null && LevelFlow.Instance.IsOver;
         bool hidden = PauseMenu.IsPaused || levelOver;
 
-        // En un diálogo solo queda el botón de interactuar, que avanza el texto
-        bool gameplay = !hidden && !DialogueBox.IsOpen;
+        // En un diálogo o minijuego solo queda el botón de interactuar (avanza el texto
+        // o se mantiene para respirar)
+        bool gameplay = !hidden && !DialogueBox.IsOpen && !BreathingMinigame.IsOpen;
 
         SetVisible(leftButton, gameplay);
         SetVisible(rightButton, gameplay);
