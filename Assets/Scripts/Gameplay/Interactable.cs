@@ -21,12 +21,12 @@ public class Interactable : MonoBehaviour
     [SerializeField] private Vector2 promptOffset = new Vector2(0f, 3.8f);
 
     // --- Diálogo ---
-    [SerializeField] private string speaker;
-    [SerializeField, TextArea(2, 4)] private string[] lines;
+    [SerializeField] protected string speaker;
+    [SerializeField, TextArea(2, 4)] protected string[] lines;
 
     // --- Efecto ---
     [Tooltip("Estrés que suma al terminar (negativo para calmar).")]
-    [SerializeField] private float stressChange;
+    [SerializeField] protected float stressChange;
 
     [Tooltip("Si está marcado, el cambio de estrés solo se aplica la primera vez.")]
     [SerializeField] private bool stressOnce = true;
@@ -49,12 +49,13 @@ public class Interactable : MonoBehaviour
         Active.Remove(this);
     }
 
-    public void Interact()
+    // Virtual para que las variantes (objetivos, puntos de descanso) cambien el diálogo
+    public virtual void Interact()
     {
         DialogueBox.Instance.Show(speaker, lines, Finish);
     }
 
-    private void Finish()
+    protected void Finish()
     {
         if (!(stressOnce && used) && StressSystem.Instance != null)
         {
