@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HITO 1  Encuentra tu aula: 207'
+  m_text: 'HITO 2  Encuentra tu aula: 207'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290aa7b1b4328814296987fd3de00932, type: 2}
   m_sharedMaterial: {fileID: -5669860402371522899, guid: 290aa7b1b4328814296987fd3de00932, type: 2}
@@ -4933,7 +4933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HITO 1 COMPLETADO
+  m_text: HITO 2 COMPLETADO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290aa7b1b4328814296987fd3de00932, type: 2}
   m_sharedMaterial: {fileID: -5669860402371522899, guid: 290aa7b1b4328814296987fd3de00932, type: 2}

@@ -2671,7 +2671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaf6b359a2a62567aa15781677af3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectPanel
-  gameScene: Piso2
+  gameScene: Hito1
   cards:
   - button: {fileID: 1829296511}
     preview: {fileID: 873837531}

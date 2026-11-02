@@ -19,6 +19,11 @@ public class LevelFlow : MonoBehaviour
     [SerializeField] private Button retryButton;
     [SerializeField] private Button loseMenuButton;
 
+    // --- Siguiente hito (opcional) ---
+    [Tooltip("Escena del siguiente hito. Vacío: la victoria solo vuelve al menú.")]
+    [SerializeField] private string nextScene;
+    [SerializeField] private Button winNextButton;
+
     public bool IsOver { get; private set; }
 
     private void Awake()
@@ -29,7 +34,13 @@ public class LevelFlow : MonoBehaviour
         winMenuButton.onClick.AddListener(GoToMenu);
         loseMenuButton.onClick.AddListener(GoToMenu);
         retryButton.onClick.AddListener(Retry);
+        if (HasNextLevel)
+        {
+            winNextButton.onClick.AddListener(GoToNextLevel);
+        }
     }
+
+    private bool HasNextLevel => winNextButton != null && !string.IsNullOrEmpty(nextScene);
 
     private void Start()
     {
@@ -55,7 +66,7 @@ public class LevelFlow : MonoBehaviour
     // Se conecta al onFinished del interactuable que cierra el hito
     public void CompleteMilestone()
     {
-        End(winPanel, winMenuButton);
+        End(winPanel, HasNextLevel ? winNextButton : winMenuButton);
     }
 
     private void OnStressMaxed()
@@ -87,5 +98,10 @@ public class LevelFlow : MonoBehaviour
     private void GoToMenu()
     {
         SceneManager.LoadScene(menuScene);
+    }
+
+    private void GoToNextLevel()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }

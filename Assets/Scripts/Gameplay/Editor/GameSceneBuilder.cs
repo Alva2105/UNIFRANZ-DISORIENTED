@@ -144,7 +144,7 @@ public static class GameSceneBuilder
         SetField(hud, "face", face.GetComponent<Animator>());
 
         // Objetivo del hito
-        TextMeshProUGUI objective = CreateText("Objetivo", ui, "HITO 1  Encuentra tu aula: 207", 22f, TextLight, TextAlignmentOptions.TopLeft);
+        TextMeshProUGUI objective = CreateText("Objetivo", ui, "HITO 2  Encuentra tu aula: 207", 22f, TextLight, TextAlignmentOptions.TopLeft);
         TopLeft(objective.rectTransform, new Vector2(150f, -50f), new Vector2(1200f, 40f));
         AddShadow(objective.gameObject);
 
@@ -175,7 +175,7 @@ public static class GameSceneBuilder
         // --- Pantallas de final y flujo del nivel ---
         LevelFlow flow = systems.AddComponent<LevelFlow>();
         SetField(flow, "player", movement);
-        GameObject win = CreateEndPanel(ui, "Victoria", "HITO 1 COMPLETADO", "Encontraste tu aula. La Ruta de Inducción continúa...",
+        GameObject win = CreateEndPanel(ui, "Victoria", "HITO 2 COMPLETADO", "Encontraste tu aula. La Ruta de Inducción continúa...",
             Orange, false, out Button winMenu, out _);
         GameObject lose = CreateEndPanel(ui, "CrisisAnsiedad", "CRISIS DE ANSIEDAD", "Todo se volvió demasiado. Respira e inténtalo otra vez.",
             new Color(0.85f, 0.15f, 0.15f), true, out Button loseMenu, out Button retry);

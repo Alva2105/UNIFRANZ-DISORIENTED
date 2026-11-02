@@ -18,7 +18,7 @@ public class CharacterSelectPanel : MonoBehaviour
         public Sprite[] walk;
     }
 
-    [SerializeField] private string gameScene = "Piso2";
+    [SerializeField] private string gameScene = "Hito1";
     [SerializeField] private Card[] cards;
     [SerializeField] private Button backButton;
     [SerializeField] private float framesPerSecond = 8f;
