@@ -74,8 +74,8 @@ public class BreathingMinigame : MonoBehaviour
         panel.SetActive(true);
         controls.Player.Interact.Enable();
 
-        // En Android la tecla es el botón táctil USAR
-        string key = ControlPlatform.UsesTouchControls ? "USAR" : "E";
+        // E en Windows, botón táctil USAR en Android
+        string key = ControlPlatform.InteractHint;
         instruction.text = $"Mantén {key} mientras el círculo crece (inhala)\ny suéltalo cuando se encoge (exhala)";
         progress.text = "";
         circle.localScale = Vector3.one * minScale;

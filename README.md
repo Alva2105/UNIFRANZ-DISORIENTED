@@ -108,14 +108,17 @@ El proyecto utiliza las siguientes tecnologías y herramientas:
 
 ## Prototipo jugable en desarrollo
 
-Actualmente se puede jugar el primer nivel, ubicado en el piso 2 del Bloque A.
+Actualmente se pueden jugar los dos primeros hitos: el Hito 1 en la Planta Baja y el Mezzanine, y el Hito 2 en el piso 2 del Bloque A.
 
 Ya está implementado:
 
 - Menú principal con Jugar, Opciones, Créditos y Salir.
 - Elección entre los dos personajes jugables.
-- Pasillo continuo del piso 2 con aulas, mural y escaleras interactivas.
-- Primer hito de inducción: encontrar el aula 207.
+- Hito 1 (introducción y orientación): Hall, Recepción, Admisiones, Cafetería, Game Room, Auditorio y, subiendo por las gradas, ARCA y Cajas en el Mezzanine, basados en el tour virtual de la sede La Paz.
+- Checklist de Inducción de 8 objetivos: guía de Bienestar, minijuego de respiración, código de estudiante, carnet en Cajas, fila de molinetes, tótem de orientación, ayudar a un compañero y firmar con el docente.
+- NPCs con diálogos, zona de aglomeración que sube el estrés y dispensador de agua que lo baja.
+- Hito 2: pasillo continuo del piso 2 con aulas, mural y escaleras; encontrar el aula 207.
+- Música, pasos y latidos que reaccionan al estrés.
 - Sistema de Estrés y Ansiedad, con cambios en el escenario, los personajes y el HUD.
 - Diálogos, menú de pausa y configuración.
 - Pantallas de victoria y de crisis de ansiedad.
@@ -124,7 +127,7 @@ Ya está implementado:
 Las siguientes etapas incorporarán:
 
 - Los hitos de inducción restantes.
-- Minijuegos.
+- Más minijuegos.
 - Alteraciones auditivas.
 - Integración general.
 - Pruebas de jugabilidad y corrección de errores.
@@ -142,21 +145,29 @@ Assets/
 │
 ├── art/                Fondos, tiles, personajes base y UI del menú principal.
 │
+├── Audio/              Música y efectos (créditos en CREDITOS_AUDIO.txt).
+│
 ├── Scenes/
 │   ├── MainMenu.unity  Menú principal.
-│   ├── Piso2.unity     Primer nivel jugable.
+│   ├── Hito1.unity     Hito 1: Planta Baja y Mezzanine.
+│   ├── Piso2.unity     Hito 2: piso 2.
 │   └── Nivel01.unity   Escena del prototipo inicial.
 │
 ├── Scripts/
+│   ├── Audio/          Música, pasos y latidos.
 │   ├── Build/          Exportación a Windows y Android.
 │   ├── Gameplay/       Interacciones, diálogos y flujo del nivel.
+│   ├── Levels/         Generadores de escenas de los hitos (Editor).
+│   ├── Minigames/      Minijuego de respiración.
+│   ├── NPC/            Animación de los NPCs.
+│   ├── Objectives/     Checklist de Inducción.
 │   ├── Player/         Movimiento, personajes y controles.
 │   ├── SaveSystem/     Configuración guardada.
 │   ├── Stress/         Sistema de Estrés y Ansiedad.
 │   └── UI/             Menús, HUD y pausa.
 │
 └── Sprites/
-    ├── Escenario/      Pasillos del piso 2 en sus tres estados.
-    ├── Personajes/     Hojas de los personajes en sus tres estados.
+    ├── Escenario/      Planta Baja, Mezzanine y piso 2 en sus tres estados, y objetos.
+    ├── Personajes/     Hojas de los protagonistas y de los NPCs.
     └── UI/             Menús, laptop de pausa y barra de ansiedad.
 ```

@@ -48,8 +48,14 @@ public static class Hito1SceneBuilder
         PrepareSprites();
 
         // Copia limpia de Piso2 en cada ejecución
-        AssetDatabase.DeleteAsset(ScenePath);
-        if (!AssetDatabase.CopyAsset(SourceScenePath, ScenePath))
+        // Si la escena ya existe se sobrescribe su contenido y se conserva su .meta (mismo
+        // GUID), así regenerarla no cambia referencias ni ensucia los commits
+        if (File.Exists(ScenePath))
+        {
+            File.Copy(SourceScenePath, ScenePath, true);
+            AssetDatabase.ImportAsset(ScenePath, ImportAssetOptions.ForceUpdate);
+        }
+        else if (!AssetDatabase.CopyAsset(SourceScenePath, ScenePath))
         {
             Debug.LogError("[Hito1SceneBuilder] No se pudo copiar " + SourceScenePath);
             return;
@@ -915,13 +921,15 @@ public static class Hito1SceneBuilder
         provider.GetDataProvider<ITextureDataProvider>().GetTextureActualWidthAndHeight(out int textureWidth, out int textureHeight);
         int width = textureWidth / frames;
         string baseName = Path.GetFileNameWithoutExtension(path);
+        // Se reutilizan los IDs de un corte anterior para que el .meta no cambie en cada ejecución
+        SpriteRect[] previous = provider.GetSpriteRects();
         provider.SetSpriteRects(Enumerable.Range(0, frames).Select(i => new SpriteRect
         {
             name = baseName + "_" + i,
             rect = new Rect(i * width, 0, width, textureHeight),
             alignment = SpriteAlignment.BottomCenter,
             pivot = new Vector2(0.5f, 0f),
-            spriteID = GUID.Generate()
+            spriteID = previous.FirstOrDefault(r => r.name == baseName + "_" + i)?.spriteID ?? GUID.Generate()
         }).ToArray());
         provider.Apply();
         importer.SaveAndReimport();
