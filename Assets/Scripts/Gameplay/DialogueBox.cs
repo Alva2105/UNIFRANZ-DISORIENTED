@@ -17,6 +17,7 @@ public class DialogueBox : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TMP_Text speakerText;
     [SerializeField] private TMP_Text bodyText;
+    [SerializeField] private TMP_Text continueHint;
     [SerializeField] private PlayerMovement player;
 
     [Tooltip("Letras que aparecen por segundo.")]
@@ -33,6 +34,7 @@ public class DialogueBox : MonoBehaviour
     {
         Instance = this;
         controls = new PlayerControls();
+        continueHint.text = ControlPlatform.InteractHint + " >";
         panel.SetActive(false);
     }
 

@@ -11,4 +11,7 @@ public static class ControlPlatform
 {
     // Verdadero en Android (y en el Device Simulator del Editor)
     public static bool UsesTouchControls => Application.isMobilePlatform;
+
+    // Texto de la acción de interactuar: la tecla en Windows, el botón táctil en Android
+    public static string InteractHint => UsesTouchControls ? "USAR" : "E";
 }
