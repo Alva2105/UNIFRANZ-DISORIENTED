@@ -1,0 +1,13 @@
+Créditos del audio (todos con licencia CC0: uso libre, sin atribución obligatoria)
+
+Música
+- Music/musica_recepcion_lobby.wav
+  "In the Lobby" de Umplix — https://opengameart.org/content/in-the-lobby
+  Convertida a mono 16 bits para reducir su tamaño.
+
+Efectos (SFX)
+- SFX/footstep_concrete_000-004.ogg, SFX/impactSoft_heavy_000-001.ogg
+  "Impact Sounds" de Kenney — https://kenney.nl/assets/impact-sounds
+- SFX/select_002.ogg, confirmation_002.ogg, confirmation_004.ogg,
+  error_004.ogg, bong_001.ogg, drop_002.ogg
+  "Interface Sounds" de Kenney — https://kenney.nl/assets/interface-sounds
