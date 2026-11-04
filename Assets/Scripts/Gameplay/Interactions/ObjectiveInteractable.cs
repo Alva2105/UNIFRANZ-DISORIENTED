@@ -4,13 +4,17 @@ using UnityEngine.Events;
 // Interactuable ligado a un objetivo del Checklist (NPC, tótem, docente). Su
 // diálogo depende del avance:
 //   - Pendiente: todavía no le toca (linesPending, suele subir un poco el estrés).
-//   - Activo: usa las líneas normales de Interactable y al cerrar completa el objetivo.
+//   - Activo: usa las líneas normales de Interactable y al cerrar completa el objetivo
+//     (o, si completesObjective está desmarcado, solo abre lo que tenga en onFinished).
 //   - Hecho: un recordatorio corto (linesDone), sin efecto en el estrés.
 public class ObjectiveInteractable : Interactable
 {
     [Header("Objetivo")]
     [Tooltip("Id del objetivo de ObjectiveTracker que completa este interactuable.")]
     [SerializeField] private string objectiveId;
+
+    [Tooltip("Desmarcado: el diálogo solo dispara onFinished (p. ej. abre un minijuego) y el objetivo lo completa ese minijuego.")]
+    [SerializeField] private bool completesObjective = true;
 
     [Tooltip("Lo que dice si el jugador llega antes de tiempo.")]
     [SerializeField, TextArea(2, 4)] private string[] linesPending;
@@ -65,7 +69,7 @@ public class ObjectiveInteractable : Interactable
         {
             visual.sprite = doneSprite;
         }
-        if (ObjectiveTracker.Instance != null)
+        if (completesObjective && ObjectiveTracker.Instance != null)
         {
             ObjectiveTracker.Instance.Complete(objectiveId);
         }
