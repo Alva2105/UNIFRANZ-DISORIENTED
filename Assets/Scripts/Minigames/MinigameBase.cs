@@ -94,6 +94,11 @@ public abstract class MinigameBase : MonoBehaviour
     // -1 o +1 el cuadro en que se presiona izquierda o derecha; 0 si no
     protected int HorizontalPressed()
     {
+        // En pausa no se responde: las teclas son para el menú de pausa
+        if (PauseMenu.IsPaused)
+        {
+            return 0;
+        }
         float x = controls.Player.Move.ReadValue<Vector2>().x;
         int step = 0;
         if (x > 0.5f && previousMoveX <= 0.5f)
@@ -114,7 +119,7 @@ public abstract class MinigameBase : MonoBehaviour
 
     protected bool ConfirmPressed()
     {
-        return controls.Player.Interact.WasPressedThisFrame();
+        return !PauseMenu.IsPaused && controls.Player.Interact.WasPressedThisFrame();
     }
 
     private void SetPlaying(bool playing)
