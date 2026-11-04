@@ -486,7 +486,7 @@ public static class Hito2SceneBuilder
         so.ApplyModifiedPropertiesWithoutUndo();
     }
 
-    private static void SetQuestions(NotesMinigame game, (string prompt, string[] options, int correct)[] items)
+    internal static void SetQuestions(NotesMinigame game, (string prompt, string[] options, int correct)[] items)
     {
         var so = new SerializedObject(game);
         SerializedProperty array = so.FindProperty("questions");

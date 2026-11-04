@@ -26,6 +26,7 @@ public static class Hito3SceneBuilder
     private const string MenuScenePath = "Assets/Scenes/MainMenu.unity";
     private const string Hito1ScenePath = "Assets/Scenes/Hito1.unity";
     private const string Hito2ScenePath = "Assets/Scenes/Hito2.unity";
+    private const string NextScene = "Hito4";
 
     private static readonly string[] Piso1Blocks = { "pasillo", "fisiologia", "histologia", "simulacion" };
     private static readonly string[] Piso5Blocks = { "biblioteca", "aula_dinamica" };
@@ -146,12 +147,14 @@ public static class Hito3SceneBuilder
             ("informe", 35f, 12f, "La entrega del informe cierra en")
         });
 
-        // --- Pantalla de victoria (último hito hecho por ahora: solo volver al menú) ---
+        // --- Pantalla de victoria con paso al Hito 4 ---
         Transform win = H.FindDeep(ui, "Victoria");
         H.FindDeep(win, "Titulo").GetComponent<TMP_Text>().text = "HITO 3 COMPLETADO";
         H.FindDeep(win, "Mensaje").GetComponent<TMP_Text>().text = "Pasaste la mitad del semestre. Se vienen los exámenes parciales.";
+        Button next = H.CreateNextButton(win);
         LevelFlow flow = systems.GetComponent<LevelFlow>();
-        H.SetString(flow, "nextScene", "");
+        H.SetString(flow, "nextScene", NextScene);
+        H.Set(flow, "winNextButton", next);
 
         // --- Minijuegos y fundido de las gradas ---
         ScheduleMinigame exams = CreateExamScheduleMinigame(ui, systems, player);
@@ -409,7 +412,7 @@ public static class Hito3SceneBuilder
     }
 
     // Fila de casillas centradas con un texto adentro (días, tubos, lomos, tarjetas)
-    private static Object[] CreateBoxes(RectTransform panel, string prefix, int count, float spacing, Vector2 size, float y,
+    internal static Object[] CreateBoxes(RectTransform panel, string prefix, int count, float spacing, Vector2 size, float y,
         float fontSize, out Object[] texts)
     {
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(H.FontPath);
@@ -436,7 +439,7 @@ public static class Hito3SceneBuilder
     }
 
     // Barra de tiempo que se achica escalando en X desde la izquierda
-    private static Image CreateTimerBar(RectTransform panel, float y)
+    internal static Image CreateTimerBar(RectTransform panel, float y)
     {
         RectTransform bar = H2.Rect(panel, "Tiempo");
         bar.anchorMin = bar.anchorMax = bar.pivot = new Vector2(0.5f, 0.5f);
