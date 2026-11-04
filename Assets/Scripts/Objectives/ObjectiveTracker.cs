@@ -5,12 +5,14 @@ using UnityEngine;
 public enum ObjectiveState
 {
     Pending,   // Todavía no le toca (faltan objetivos anteriores)
-    Current,   // Es el objetivo activo
+    Current,   // Es un objetivo activo (en un bloque libre puede haber varios)
     Done       // Ya se completó
 }
 
 // Checklist de Inducción de un hito: objetivos en orden que se completan uno tras
-// otro. Al completar el último se cierra el hito con LevelFlow (pantalla de victoria).
+// otro. Los objetivos seguidos marcados como "anyOrder" forman un bloque libre: se
+// activan juntos y se pueden completar en cualquier orden. Al completar el último se
+// cierra el hito con LevelFlow (pantalla de victoria).
 public class ObjectiveTracker : MonoBehaviour
 {
     [Serializable]
@@ -21,6 +23,9 @@ public class ObjectiveTracker : MonoBehaviour
 
         [Tooltip("Texto que se muestra en el HUD.")]
         public string description;
+
+        [Tooltip("Junto con los objetivos vecinos marcados igual, se puede hacer en cualquier orden.")]
+        public bool anyOrder;
     }
 
     public static ObjectiveTracker Instance { get; private set; }
@@ -34,20 +39,23 @@ public class ObjectiveTracker : MonoBehaviour
     [SerializeField] private AudioClip objectiveCompletedClip;
     [SerializeField] private AudioClip milestoneCompletedClip;
 
+    // Primer objetivo sin completar y objetivos ya hechos
     private int currentIndex;
+    private bool[] done;
 
     // Avisa cada vez que cambia el objetivo activo (lo escucha el HUD)
     public event Action Changed;
 
     public string MilestoneTitle => milestoneTitle;
-    public int CompletedCount => currentIndex;
+    public int CompletedCount => Array.FindAll(done, d => d).Length;
     public int TotalCount => objectives.Length;
     public bool AllDone => currentIndex >= objectives.Length;
-    public string CurrentDescription => AllDone ? "Completado" : objectives[currentIndex].description;
+    public string CurrentDescription => AllDone ? "Completado" : DescribeCurrent();
 
     private void Awake()
     {
         Instance = this;
+        done = new bool[objectives.Length];
     }
 
     private void OnDestroy()
@@ -66,9 +74,11 @@ public class ObjectiveTracker : MonoBehaviour
             Debug.LogWarning("[ObjectiveTracker] No existe el objetivo " + id);
             return ObjectiveState.Done;
         }
-        return index < currentIndex ? ObjectiveState.Done
-            : index == currentIndex ? ObjectiveState.Current
-            : ObjectiveState.Pending;
+        if (done[index])
+        {
+            return ObjectiveState.Done;
+        }
+        return index == currentIndex || index < GroupEnd(currentIndex) ? ObjectiveState.Current : ObjectiveState.Pending;
     }
 
     // Completa el objetivo si es el activo; devuelve false si no le tocaba
@@ -79,7 +89,11 @@ public class ObjectiveTracker : MonoBehaviour
             return false;
         }
 
-        currentIndex++;
+        done[Array.FindIndex(objectives, o => o.id == id)] = true;
+        while (currentIndex < objectives.Length && done[currentIndex])
+        {
+            currentIndex++;
+        }
         Changed?.Invoke();
 
         if (AllDone)
@@ -95,5 +109,39 @@ public class ObjectiveTracker : MonoBehaviour
             AudioManager.PlaySfx(objectiveCompletedClip);
         }
         return true;
+    }
+
+    // Índice siguiente al bloque libre que empieza en start (start + 1 si no es un bloque)
+    private int GroupEnd(int start)
+    {
+        if (start >= objectives.Length || !objectives[start].anyOrder)
+        {
+            return start + 1;
+        }
+        int end = start;
+        while (end < objectives.Length && objectives[end].anyOrder)
+        {
+            end++;
+        }
+        return end;
+    }
+
+    // En un bloque libre se listan todos los pendientes: "Pendientes: A, B, C"
+    private string DescribeCurrent()
+    {
+        int end = GroupEnd(currentIndex);
+        if (end - currentIndex <= 1)
+        {
+            return objectives[currentIndex].description;
+        }
+        var pending = new System.Collections.Generic.List<string>();
+        for (int i = currentIndex; i < end; i++)
+        {
+            if (!done[i])
+            {
+                pending.Add(objectives[i].description);
+            }
+        }
+        return pending.Count == 1 ? pending[0] : "Pendientes: " + string.Join(", ", pending);
     }
 }

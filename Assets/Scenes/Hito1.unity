@@ -8935,20 +8935,28 @@ MonoBehaviour:
   objectives:
   - id: guia
     description: "Habla con la Gu\xEDa de Bienestar en Recepci\xF3n"
+    anyOrder: 0
   - id: respiracion
     description: "Practica la respiraci\xF3n con Luc\xEDa"
+    anyOrder: 0
   - id: cartelera
     description: "Busca tu c\xF3digo en Admisiones"
+    anyOrder: 0
   - id: carnet
     description: Recoge tu carnet en Cajas (Mezzanine)
+    anyOrder: 0
   - id: molinete
     description: Pasa el molinete con tu carnet
+    anyOrder: 0
   - id: totem
     description: "Activa el T\xF3tem de la Cafeter\xEDa"
+    anyOrder: 0
   - id: companero
     description: Ayuda a Diego en el Hall
+    anyOrder: 0
   - id: docente
     description: Registra tu asistencia en el Auditorio
+    anyOrder: 0
   objectiveCompletedClip: {fileID: 8300000, guid: 179a04a62c5ae524496f230dd1b226d5, type: 3}
   milestoneCompletedClip: {fileID: 8300000, guid: 6304a56e30b4f564885fc04f743ff5e4, type: 3}
 --- !u!114 &1416997464

@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-// Reloj de clase: algunos objetivos tienen tiempo límite desde que pasan a ser el
+// Reloj de clase: algunos objetivos tienen tiempo límite desde que pasan a ser un
 // objetivo activo (p. ej. llegar al aula antes de que empiece la clase). El tiempo se
 // muestra en el HUD y se detiene durante diálogos, minijuegos y la pausa. Si se acaba,
 // no se pierde el nivel: sube el estrés y el aviso cambia a "llegas tarde".
@@ -46,7 +46,13 @@ public class ObjectiveDeadline : MonoBehaviour
 
     private void OnObjectiveChanged()
     {
-        current = Array.Find(deadlines, d => tracker.GetState(d.objectiveId) == ObjectiveState.Current);
+        Deadline next = Array.Find(deadlines, d => tracker.GetState(d.objectiveId) == ObjectiveState.Current);
+        // En un bloque libre el mismo reloj sigue activo al completar otro objetivo: no se reinicia
+        if (next != null && next == current)
+        {
+            return;
+        }
+        current = next;
         late = false;
         remaining = current != null ? current.seconds : 0f;
         clockText.gameObject.SetActive(current != null);
