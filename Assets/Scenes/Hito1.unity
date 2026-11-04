@@ -2217,6 +2217,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: cartelera
+  completesObjective: 1
   linesPending:
   - Una cartelera llena de listas, horarios y avisos.
   - "(Todav\xEDa no sabes qu\xE9 buscar aqu\xED. Sigue tu checklist.)"
@@ -4286,7 +4287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Orientaci\xF3n lista. Tu clase te espera en el Piso 2."
+  m_text: "Orientaci\xF3n lista. Tus primeras clases te esperan en el Piso 2."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 290aa7b1b4328814296987fd3de00932, type: 2}
   m_sharedMaterial: {fileID: -5669860402371522899, guid: 290aa7b1b4328814296987fd3de00932, type: 2}
@@ -4876,6 +4877,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   objectiveId: guia
+  completesObjective: 1
   linesPending: []
   stressPending: 0
   linesDone:
@@ -5815,6 +5817,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: docente
+  completesObjective: 1
   linesPending:
   - "Buenos d\xEDas. Antes de firmar tu asistencia, completa tu Checklist de Inducci\xF3n."
   - Revisa tu objetivo, arriba en la pantalla.
@@ -6887,6 +6890,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: carnet
+  completesObjective: 1
   linesPending:
   - "Buenos d\xEDas. Para tu carnet necesito tu c\xF3digo de estudiante."
   - Lo encuentras en la cartelera de matriculados de Admisiones, en la Planta Baja.
@@ -7985,6 +7989,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: companero
+  completesObjective: 1
   linesPending:
   - "Oye... \xBFt\xFA tambi\xE9n eres nuev@? Estoy perdido."
   - "Me dijeron que busque Bienestar Estudiantil, pero no s\xE9 d\xF3nde queda."
@@ -8320,6 +8325,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: molinete
+  completesObjective: 1
   linesPending:
   - El molinete no gira. Necesitas tu carnet de estudiante para pasar.
   stressPending: 3
@@ -8878,7 +8884,7 @@ MonoBehaviour:
   losePanel: {fileID: 2114861208}
   retryButton: {fileID: 1474604578}
   loseMenuButton: {fileID: 807902200}
-  nextScene: Piso2
+  nextScene: Hito2
   winNextButton: {fileID: 745826516}
 --- !u!114 &1416997461
 MonoBehaviour:
@@ -10061,6 +10067,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   objectiveId: totem
+  completesObjective: 1
   linesPending:
   - "La pantalla est\xE1 apagada y no sabes c\xF3mo usarla."
   - (Primero termina lo anterior de tu checklist.)

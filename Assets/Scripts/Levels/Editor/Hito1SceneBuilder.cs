@@ -18,6 +18,8 @@ using UnityEngine.UI;
 //
 // El escenario es la Planta Baja y el Mezzanine reales de la sede La Paz (según el
 // tour virtual), unidos por las gradas de Recepción.
+// Sus utilidades (NPCs, interactuables, sprites, audio y campos serializados) son
+// internal: las reutilizan los generadores de los demás hitos.
 // Menú: Tools > UNIFRANZ-DISORIENTED. En modo batch:
 //   Unity -batchmode -quit -projectPath . -executeMethod Hito1SceneBuilder.Build
 public static class Hito1SceneBuilder
@@ -26,16 +28,16 @@ public static class Hito1SceneBuilder
     private const string SourceScenePath = "Assets/Scenes/Piso2.unity";
     private const string ScenePath = "Assets/Scenes/Hito1.unity";
     private const string MenuScenePath = "Assets/Scenes/MainMenu.unity";
-    private const string NextScene = "Piso2";
-    private const string NpcPath = "Assets/Sprites/Personajes/NPCs/";
-    private const string PropsPath = "Assets/Sprites/Escenario/Objetos/";
-    private const string SfxPath = "Assets/Audio/SFX/";
-    private const string MusicPath = "Assets/Audio/Music/musica_recepcion_lobby.wav";
+    private const string NextScene = "Hito2";
+    internal const string NpcPath = "Assets/Sprites/Personajes/NPCs/";
+    internal const string PropsPath = "Assets/Sprites/Escenario/Objetos/";
+    internal const string SfxPath = "Assets/Audio/SFX/";
+    internal const string MusicPath = "Assets/Audio/Music/musica_recepcion_lobby.wav";
     private const string ButtonsPath = "Assets/Sprites/UI/Menus/Botones/boton_vacio_";
-    private const string FontPath = "Assets/art/UI/Fonts/PressStart2P SDF.asset";
+    internal const string FontPath = "Assets/art/UI/Fonts/PressStart2P SDF.asset";
 
     // Misma escala y resolución que los protagonistas (64 px por unidad, x3.2)
-    private const float CharacterScale = 3.2f;
+    internal const float CharacterScale = 3.2f;
     private const int PixelsPerUnit = 64;
 
     // Objetos del Piso 2 que no se usan en la Planta Baja
@@ -430,7 +432,7 @@ public static class Hito1SceneBuilder
     // NPC con animación de respirar. lookAtPlayer: se gira hacia el jugador;
     // si no, mira a la derecha o a la izquierda (flip) todo el tiempo.
     // patrol > 0: camina esa distancia a cada lado de su posición
-    private static GameObject CreatePerson(Transform parent, string sheet, float x, float floorY, Transform player,
+    internal static GameObject CreatePerson(Transform parent, string sheet, float x, float floorY, Transform player,
         bool lookAtPlayer = true, bool flip = false, int order = 5, float patrol = 0f)
     {
         Sprite[] frames = SheetFrames(NpcPath + sheet + "_Respirar.png");
@@ -446,7 +448,7 @@ public static class Hito1SceneBuilder
         return npc;
     }
 
-    private static ObjectiveInteractable CreateNpc(Transform parent, string sheet, float x, float floorY, Transform player,
+    internal static ObjectiveInteractable CreateNpc(Transform parent, string sheet, float x, float floorY, Transform player,
         string speaker, string prompt, string objectiveId, float stressChange,
         string[] lines, string[] linesPending, float stressPending, string[] linesDone, float patrol = 0f)
     {
@@ -456,7 +458,7 @@ public static class Hito1SceneBuilder
         return interactable;
     }
 
-    private static void ConfigureObjective(ObjectiveInteractable item, string prompt, string speaker, string objectiveId,
+    internal static void ConfigureObjective(ObjectiveInteractable item, string prompt, string speaker, string objectiveId,
         float stressChange, string[] lines, string[] linesPending, float stressPending, string[] linesDone)
     {
         ConfigureInteractable(item, prompt, speaker, lines, stressChange);
@@ -469,7 +471,7 @@ public static class Hito1SceneBuilder
     }
 
     // NPC opcional: solo conversa (no es parte del Checklist)
-    private static void CreateExtra(Transform parent, string sheet, float x, float floorY, Transform player, bool flip,
+    internal static void CreateExtra(Transform parent, string sheet, float x, float floorY, Transform player, bool flip,
         string speaker, float stressChange, string[] lines)
     {
         GameObject npc = CreatePerson(parent, sheet, x, floorY, player, true, flip);
@@ -575,7 +577,7 @@ public static class Hito1SceneBuilder
     }
 
     // Aglomeración de estudiantes conversando entre ellos; uno responde si le hablas
-    private static void CreateCrowd(Transform parent, float start, float end, float floorY, Transform player)
+    internal static void CreateCrowd(Transform parent, float start, float end, float floorY, Transform player)
     {
         var zoneGo = new GameObject("ZonaAglomeracion");
         zoneGo.transform.SetParent(parent);
@@ -646,7 +648,7 @@ public static class Hito1SceneBuilder
         return minigame;
     }
 
-    private static TextMeshProUGUI CreateLabel(Transform parent, string name, TMP_FontAsset font, string text, float size,
+    internal static TextMeshProUGUI CreateLabel(Transform parent, string name, TMP_FontAsset font, string text, float size,
         Color color, float y)
     {
         var go = new GameObject(name, typeof(RectTransform));
@@ -666,7 +668,7 @@ public static class Hito1SceneBuilder
     }
 
     // Evento UnityEvent privado de un componente (para conectar listeners persistentes)
-    private static UnityEngine.Events.UnityEvent GetEvent(Object target, System.Type type, string field)
+    internal static UnityEngine.Events.UnityEvent GetEvent(Object target, System.Type type, string field)
     {
         return (UnityEngine.Events.UnityEvent)type
             .GetField(field, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
@@ -701,7 +703,7 @@ public static class Hito1SceneBuilder
         Set(interactable, "pendingClip", Sfx("error_004"));
     }
 
-    private static void CreateRestPoint(Transform parent, float x, float floorY)
+    internal static void CreateRestPoint(Transform parent, float x, float floorY)
     {
         Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(PropsPath + "dispensador_agua.png");
         GameObject dispenser = CreateVisual(parent, "DispensadorAgua", sprite, x, floorY, out _);
@@ -718,7 +720,7 @@ public static class Hito1SceneBuilder
     }
 
     // Objeto con su sprite en un hijo escalado como los personajes (pivote en los pies)
-    private static GameObject CreateVisual(Transform parent, string name, Sprite sprite, float x, float floorY,
+    internal static GameObject CreateVisual(Transform parent, string name, Sprite sprite, float x, float floorY,
         out SpriteRenderer renderer, int order = 5)
     {
         var root = new GameObject(name);
@@ -735,7 +737,7 @@ public static class Hito1SceneBuilder
         return root;
     }
 
-    private static void ConfigureInteractable(Interactable item, string prompt, string speaker, string[] lines, float stressChange)
+    internal static void ConfigureInteractable(Interactable item, string prompt, string speaker, string[] lines, float stressChange)
     {
         SetString(item, "prompt", prompt);
         SetString(item, "speaker", speaker);
@@ -826,7 +828,7 @@ public static class Hito1SceneBuilder
     // ================================================================
 
     // Importa los sprites de NPCs y objetos como pixel art (64 px/unidad, pivote en los pies)
-    private static void PrepareSprites()
+    internal static void PrepareSprites()
     {
         string[] sheets = { "GuiaBienestar", "Companero", "Docente", "Cajera", "Valeria", "Kevin", "Marco", "Sofia", "Andres" };
         foreach (string sheet in sheets)
@@ -885,7 +887,7 @@ public static class Hito1SceneBuilder
         importer.SaveAndReimport();
     }
 
-    private static void ImportPixelArt(string path, int frames)
+    internal static void ImportPixelArt(string path, int frames)
     {
         var importer = (TextureImporter)AssetImporter.GetAtPath(path);
         if (importer == null)
@@ -935,13 +937,13 @@ public static class Hito1SceneBuilder
         importer.SaveAndReimport();
     }
 
-    private static Sprite[] SheetFrames(string path)
+    internal static Sprite[] SheetFrames(string path)
     {
         return AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
             .OrderBy(s => int.Parse(s.name.Substring(s.name.LastIndexOf('_') + 1))).ToArray();
     }
 
-    private static Sprite LoadSprite(string path)
+    internal static Sprite LoadSprite(string path)
     {
         Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
         if (sprite == null)
@@ -951,7 +953,7 @@ public static class Hito1SceneBuilder
         return sprite;
     }
 
-    private static AudioClip Sfx(string name)
+    internal static AudioClip Sfx(string name)
     {
         AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(SfxPath + name + ".ogg");
         if (clip == null)
@@ -965,17 +967,17 @@ public static class Hito1SceneBuilder
     // Utilidades
     // ================================================================
 
-    private static GameObject FindRoot(Scene scene, string name)
+    internal static GameObject FindRoot(Scene scene, string name)
     {
         return scene.GetRootGameObjects().FirstOrDefault(r => r.name == name);
     }
 
-    private static Transform FindDeep(Transform parent, string name)
+    internal static Transform FindDeep(Transform parent, string name)
     {
         return parent.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == name);
     }
 
-    private static void SetObjectives(ObjectiveTracker tracker, (string id, string description)[] objectives)
+    internal static void SetObjectives(ObjectiveTracker tracker, (string id, string description)[] objectives)
     {
         var so = new SerializedObject(tracker);
         SerializedProperty array = so.FindProperty("objectives");
@@ -990,7 +992,7 @@ public static class Hito1SceneBuilder
     }
 
     // Asignan campos privados [SerializeField] desde el Editor
-    private static SerializedProperty Property(SerializedObject so, Object target, string field)
+    internal static SerializedProperty Property(SerializedObject so, Object target, string field)
     {
         SerializedProperty property = so.FindProperty(field);
         if (property == null)
@@ -1000,7 +1002,7 @@ public static class Hito1SceneBuilder
         return property;
     }
 
-    private static void Set(Object target, string field, Object value)
+    internal static void Set(Object target, string field, Object value)
     {
         var so = new SerializedObject(target);
         SerializedProperty property = Property(so, target, field);
@@ -1011,7 +1013,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void SetFloat(Object target, string field, float value)
+    internal static void SetFloat(Object target, string field, float value)
     {
         var so = new SerializedObject(target);
         SerializedProperty property = Property(so, target, field);
@@ -1022,7 +1024,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void SetVector(Object target, string field, Vector2 value)
+    internal static void SetVector(Object target, string field, Vector2 value)
     {
         var so = new SerializedObject(target);
         SerializedProperty property = Property(so, target, field);
@@ -1033,7 +1035,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void SetBool(Object target, string field, bool value)
+    internal static void SetBool(Object target, string field, bool value)
     {
         var so = new SerializedObject(target);
         SerializedProperty property = Property(so, target, field);
@@ -1044,7 +1046,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void SetString(Object target, string field, string value)
+    internal static void SetString(Object target, string field, string value)
     {
         var so = new SerializedObject(target);
         SerializedProperty property = Property(so, target, field);
@@ -1055,7 +1057,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void SetStrings(Object target, string field, string[] values)
+    internal static void SetStrings(Object target, string field, string[] values)
     {
         var so = new SerializedObject(target);
         SerializedProperty array = Property(so, target, field);
@@ -1071,7 +1073,7 @@ public static class Hito1SceneBuilder
         so.ApplyModifiedPropertiesWithoutUndo();
     }
 
-    private static void SetArray(Object target, string field, Object[] values)
+    internal static void SetArray(Object target, string field, Object[] values)
     {
         var so = new SerializedObject(target);
         SerializedProperty array = Property(so, target, field);
