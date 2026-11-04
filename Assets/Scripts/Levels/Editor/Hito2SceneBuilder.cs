@@ -22,6 +22,7 @@ public static class Hito2SceneBuilder
     private const string ScenePath = "Assets/Scenes/Hito2.unity";
     private const string MenuScenePath = "Assets/Scenes/MainMenu.unity";
     private const string Hito1ScenePath = "Assets/Scenes/Hito1.unity";
+    private const string NextScene = "Hito3";
 
     private static readonly Color Orange = new Color(0.976f, 0.435f, 0.075f);
     private static readonly Color TextLight = new Color(0.92f, 0.92f, 0.95f);
@@ -121,12 +122,14 @@ public static class Hito2SceneBuilder
             ("laboratorio", 22f, 12f, "El laboratorio empieza en")
         });
 
-        // --- Pantalla de victoria (fin del contenido por ahora: solo volver al menú) ---
+        // --- Pantalla de victoria con paso al Hito 3 ---
         Transform win = H.FindDeep(ui, "Victoria");
         H.FindDeep(win, "Titulo").GetComponent<TMP_Text>().text = "HITO 2 COMPLETADO";
         H.FindDeep(win, "Mensaje").GetComponent<TMP_Text>().text = "Sobreviviste a tus primeras clases. Se viene la mitad del semestre.";
+        Button next = H.CreateNextButton(win);
         LevelFlow flow = systems.GetComponent<LevelFlow>();
-        H.SetString(flow, "nextScene", "");
+        H.SetString(flow, "nextScene", NextScene);
+        H.Set(flow, "winNextButton", next);
 
         // --- Minijuegos ---
         ScheduleMinigame schedule = CreateScheduleMinigame(ui, systems, player);
@@ -228,7 +231,7 @@ public static class Hito2SceneBuilder
     // ================================================================
 
     // Interactuable de objetivo sin sprite propio (puertas, mural, escaleras del arte)
-    private static ObjectiveInteractable CreateObject(Transform parent, string name, float x, float floorY, string prompt,
+    internal static ObjectiveInteractable CreateObject(Transform parent, string name, float x, float floorY, string prompt,
         string speaker, string objectiveId, float stressChange, string[] lines, string[] pending, float stressPending, string[] done)
     {
         var go = new GameObject(name);
@@ -382,7 +385,7 @@ public static class Hito2SceneBuilder
         return game;
     }
 
-    private static void ConfigureMinigame(MinigameBase game, GameObject panel, GameObject player, string objectiveId)
+    internal static void ConfigureMinigame(MinigameBase game, GameObject panel, GameObject player, string objectiveId)
     {
         H.Set(game, "panel", panel);
         H.Set(game, "player", player.GetComponent<PlayerMovement>());
@@ -396,7 +399,7 @@ public static class Hito2SceneBuilder
     }
 
     // Panel a pantalla completa con fondo oscuro y título, debajo del menú de pausa
-    private static RectTransform CreatePanel(Transform ui, string name, string title)
+    internal static RectTransform CreatePanel(Transform ui, string name, string title)
     {
         RectTransform panel = Rect(ui, name);
         panel.anchorMin = Vector2.zero;
@@ -412,7 +415,7 @@ public static class Hito2SceneBuilder
         return panel;
     }
 
-    private static RectTransform Rect(Transform parent, string name)
+    internal static RectTransform Rect(Transform parent, string name)
     {
         var go = new GameObject(name, typeof(RectTransform));
         go.transform.SetParent(parent, false);
@@ -424,7 +427,7 @@ public static class Hito2SceneBuilder
     // ================================================================
 
     // Objetivo del hito sobre una franja oscura (igual que en el Hito 1)
-    private static TMP_Text SetupObjectiveHud(Transform ui, ObjectiveTracker tracker)
+    internal static TMP_Text SetupObjectiveHud(Transform ui, ObjectiveTracker tracker)
     {
         TMP_Text objectiveText = H.FindDeep(ui, "Objetivo").GetComponent<TMP_Text>();
         objectiveText.richText = true;
@@ -447,7 +450,7 @@ public static class Hito2SceneBuilder
         return objectiveText;
     }
 
-    private static void SetDeadlines(ObjectiveDeadline deadline, (string id, float seconds, float late, string label)[] items)
+    internal static void SetDeadlines(ObjectiveDeadline deadline, (string id, float seconds, float late, string label)[] items)
     {
         var so = new SerializedObject(deadline);
         SerializedProperty array = so.FindProperty("deadlines");
@@ -463,7 +466,7 @@ public static class Hito2SceneBuilder
         so.ApplyModifiedPropertiesWithoutUndo();
     }
 
-    private static void SetSubjects(ScheduleMinigame game, (string name, string shortName, int[] days)[] items)
+    internal static void SetSubjects(ScheduleMinigame game, (string name, string shortName, int[] days)[] items)
     {
         var so = new SerializedObject(game);
         SerializedProperty array = so.FindProperty("subjects");

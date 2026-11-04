@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hito2.unity
     guid: 243b9ee338f464f418b988b48188a215
   - enabled: 1
+    path: Assets/Scenes/Hito3.unity
+    guid: 5814c7241d987074b8a30580796d73ce
+  - enabled: 1
     path: Assets/Scenes/Piso2.unity
     guid: 433e8d0f033fdc35482bd0194f11d1b0
   - enabled: 1

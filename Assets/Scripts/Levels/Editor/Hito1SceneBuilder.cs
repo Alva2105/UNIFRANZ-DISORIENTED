@@ -280,7 +280,7 @@ public static class Hito1SceneBuilder
     private const float BlockHeight = 10f;
 
     // Posición de los bloques de un piso armado
-    private class Floor
+    internal class Floor
     {
         public float[] Left;
         public float[] Width;
@@ -293,7 +293,7 @@ public static class Hito1SceneBuilder
 
     // Arma los bloques de un piso uno tras otro (el primero centrado en centerX),
     // cada uno con sus variantes de estrés y ansiedad, más el suelo y las paredes
-    private static Floor BuildFloor(string floorName, string[] blocks, float centerX, float floorY)
+    internal static Floor BuildFloor(string floorName, string[] blocks, float centerX, float floorY)
     {
         var root = new GameObject("Escenario_" + floorName).transform;
         var floor = new Floor { Left = new float[blocks.Length], Width = new float[blocks.Length] };
@@ -366,7 +366,7 @@ public static class Hito1SceneBuilder
 
     // Límites de cámara de un piso. Más altos que la vista para que el confiner no se
     // reduzca a un punto; el margen va arriba porque el jugador camina abajo.
-    private static void SetBounds(PolygonCollider2D bounds, Floor floor)
+    internal static void SetBounds(PolygonCollider2D bounds, Floor floor)
     {
         float half = BlockHeight * 0.5f;
         bounds.points = new[]
@@ -376,7 +376,7 @@ public static class Hito1SceneBuilder
         };
     }
 
-    private static Transform CreatePoint(Transform parent, string name, float x, float floorY)
+    internal static Transform CreatePoint(Transform parent, string name, float x, float floorY)
     {
         var go = new GameObject(name);
         go.transform.SetParent(parent);
@@ -385,7 +385,7 @@ public static class Hito1SceneBuilder
     }
 
     // Gradas: interactuable que lleva al jugador al otro piso con un fundido
-    private static void CreatePortal(Transform parent, string name, float x, float floorY, string prompt, Transform destination,
+    internal static void CreatePortal(Transform parent, string name, float x, float floorY, string prompt, Transform destination,
         PolygonCollider2D bounds, PlayerMovement player, CinemachineCamera vcam, CinemachineConfiner2D confiner, CanvasGroup fade)
     {
         var go = new GameObject(name);
@@ -403,7 +403,7 @@ public static class Hito1SceneBuilder
     }
 
     // Capa negra a pantalla completa para el fundido de las gradas
-    private static CanvasGroup CreateFade(Transform ui)
+    internal static CanvasGroup CreateFade(Transform ui)
     {
         var go = new GameObject("Fundido", typeof(RectTransform));
         go.transform.SetParent(ui, false);
@@ -600,7 +600,8 @@ public static class Hito1SceneBuilder
     }
 
     // Panel del minijuego: capa oscura, círculo que respira e instrucciones
-    private static BreathingMinigame CreateBreathingMinigame(Transform ui, GameObject systems, GameObject player)
+    internal static BreathingMinigame CreateBreathingMinigame(Transform ui, GameObject systems, GameObject player,
+        string title = "RESPIRA CON LUCÍA")
     {
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
         var panelGo = new GameObject("MinijuegoRespiracion", typeof(RectTransform));
@@ -628,7 +629,7 @@ public static class Hito1SceneBuilder
         circleImage.sprite = LoadSprite("Assets/Sprites/UI/Minijuegos/circulo_respiracion.png");
         circleImage.raycastTarget = false;
 
-        CreateLabel(panel, "Titulo", font, "RESPIRA CON LUCÍA", 40f, new Color(0.976f, 0.435f, 0.075f), 420f);
+        CreateLabel(panel, "Titulo", font, title, 40f, new Color(0.976f, 0.435f, 0.075f), 420f);
         TextMeshProUGUI instruction = CreateLabel(panel, "Instruccion", font, "", 24f, new Color(0.92f, 0.92f, 0.95f), -300f);
         instruction.rectTransform.sizeDelta = new Vector2(1600f, 90f);
         instruction.lineSpacing = 25f;
@@ -746,7 +747,7 @@ public static class Hito1SceneBuilder
     }
 
     // Botón "CONTINUAR" sobre el de volver al menú, con el arte de los botones del juego
-    private static Button CreateNextButton(Transform winPanel)
+    internal static Button CreateNextButton(Transform winPanel)
     {
         RectTransform menu = (RectTransform)FindDeep(winPanel, "Btn_VolverMenu");
         var go = new GameObject("Btn_Continuar", typeof(RectTransform));
@@ -869,7 +870,7 @@ public static class Hito1SceneBuilder
         }
     }
 
-    private static void ImportBackground(string path)
+    internal static void ImportBackground(string path)
     {
         var importer = (TextureImporter)AssetImporter.GetAtPath(path);
         if (importer == null)
