@@ -27,6 +27,10 @@ public abstract class MinigameBase : MonoBehaviour
     protected PlayerControls controls;
     public bool IsOpen { get; private set; }
 
+    // Un minijuego puede marcarse como no superado (p. ej. un examen reprobado): entonces
+    // no completa su objetivo y el jugador puede volver a intentarlo
+    protected bool failed;
+
     private float previousMoveX;
 
     protected virtual void Awake()
@@ -67,6 +71,7 @@ public abstract class MinigameBase : MonoBehaviour
         // Un cuadro de espera: la tecla que abrió el minijuego no cuenta como respuesta
         yield return null;
         float stressChange = 0f;
+        failed = false;
         yield return Play(value => stressChange = value);
         AudioManager.PlaySfx(finishClip);
         yield return new WaitForSeconds(2.5f);
@@ -82,7 +87,7 @@ public abstract class MinigameBase : MonoBehaviour
         {
             StressSystem.Instance.Add(stressChange);
         }
-        if (ObjectiveTracker.Instance != null && !string.IsNullOrEmpty(objectiveId))
+        if (!failed && ObjectiveTracker.Instance != null && !string.IsNullOrEmpty(objectiveId))
         {
             ObjectiveTracker.Instance.Complete(objectiveId);
         }
