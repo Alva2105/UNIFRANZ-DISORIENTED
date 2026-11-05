@@ -2,8 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Acciones del menú principal: Jugar abre la elección de personaje (que carga el
-// primer nivel), Opciones abre la laptop de Configuración, Créditos muestra al
+// Acciones del menú principal: Jugar abre la elección de personaje (y después el
+// selector de hitos), Opciones abre la laptop de Configuración, Créditos muestra al
 // equipo y Salir cierra el juego.
 public class MainMenuController : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] private SettingsPanel settings;
     [SerializeField] private CharacterSelectPanel characterSelect;
+    [Tooltip("Selector de hitos que se abre después de elegir personaje (opcional).")]
+    [SerializeField] private LevelSelectPanel levelSelect;
     [SerializeField] private GameObject credits;
     [SerializeField] private Button creditsBackButton;
 
@@ -79,6 +81,10 @@ public class MainMenuController : MonoBehaviour
         else if (credits.activeSelf)
         {
             CloseCredits();
+        }
+        else if (levelSelect != null && levelSelect.gameObject.activeSelf)
+        {
+            levelSelect.Close();
         }
         else if (characterSelect.gameObject.activeSelf)
         {

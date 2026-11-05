@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 // Pantalla "Elige tu personaje" que abre Jugar. Cada tarjeta muestra al personaje
 // respirando y, mientras está seleccionada, caminando. Al elegir se guarda en
-// GameSettings y se carga el nivel.
+// GameSettings y se abre el selector de hitos (o, si no hay, se carga el nivel).
 public class CharacterSelectPanel : MonoBehaviour
 {
     [Serializable]
@@ -19,6 +19,8 @@ public class CharacterSelectPanel : MonoBehaviour
     }
 
     [SerializeField] private string gameScene = "Hito1";
+    [Tooltip("Selector de hitos que se abre al elegir personaje (opcional).")]
+    [SerializeField] private LevelSelectPanel levelSelect;
     [SerializeField] private Card[] cards;
     [SerializeField] private Button backButton;
     [SerializeField] private float framesPerSecond = 8f;
@@ -35,6 +37,11 @@ public class CharacterSelectPanel : MonoBehaviour
             cards[i].button.onClick.AddListener(() => Choose(index));
         }
         backButton.onClick.AddListener(Close);
+        if (levelSelect != null)
+        {
+            levelSelect.gameObject.SetActive(false);
+            levelSelect.Back += () => gameObject.SetActive(true);
+        }
     }
 
     private void OnEnable()
@@ -59,6 +66,12 @@ public class CharacterSelectPanel : MonoBehaviour
     private void Choose(int index)
     {
         GameSettings.SelectedCharacter = index;
+        if (levelSelect != null)
+        {
+            gameObject.SetActive(false);
+            levelSelect.gameObject.SetActive(true);
+            return;
+        }
         SceneManager.LoadScene(gameScene);
     }
 
