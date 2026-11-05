@@ -481,7 +481,7 @@ public static class Hito1SceneBuilder
 
     // La cajera atiende DENTRO de la Caja 2: se sube detrás del mostrador (la capa de
     // frente del fondo, con el vidrio y el mostrador, la tapa de la cintura para abajo)
-    private const float CashierRise = 1.8f;
+    internal const float CashierRise = 1.8f;
 
     private static void CreateCajas(Transform parent, float x, float floorY, Transform player)
     {

@@ -25,6 +25,7 @@ public static class Hito4SceneBuilder
     private const string SourceScenePath = "Assets/Scenes/Piso2.unity";
     private const string ScenePath = "Assets/Scenes/Hito4.unity";
     private const string MenuScenePath = "Assets/Scenes/MainMenu.unity";
+    private const string NextScene = "Hito5";
     private static readonly string[] PreviousScenes =
         { "Assets/Scenes/Hito1.unity", "Assets/Scenes/Hito2.unity", "Assets/Scenes/Hito3.unity" };
 
@@ -139,12 +140,14 @@ public static class Hito4SceneBuilder
         H.Set(deadline, "lateClip", H.Sfx("error_004"));
         H2.SetDeadlines(deadline, new[] { ("exposicion", 75f, 15f, "La exposición empieza en") });
 
-        // --- Pantalla de victoria (último hito hecho por ahora: solo volver al menú) ---
+        // --- Pantalla de victoria con paso al Hito 5 ---
         Transform win = H.FindDeep(ui, "Victoria");
         H.FindDeep(win, "Titulo").GetComponent<TMP_Text>().text = "HITO 4 COMPLETADO";
         H.FindDeep(win, "Mensaje").GetComponent<TMP_Text>().text = "Sobreviviste a parciales y exposiciones. Solo faltan los exámenes finales.";
+        Button next = H.CreateNextButton(win);
         LevelFlow flow = systems.GetComponent<LevelFlow>();
-        H.SetString(flow, "nextScene", "");
+        H.SetString(flow, "nextScene", NextScene);
+        H.Set(flow, "winNextButton", next);
 
         // --- Minijuegos y fundido de las gradas ---
         MemoryMinigame memory = CreateMemoryMinigame(ui, systems, player);

@@ -507,7 +507,7 @@ public static class Hito2SceneBuilder
     }
 
     // Borde izquierdo y ancho de cada bloque del pasillo, medidos con su arte normal
-    private static void MeasureBlocks(Scene scene, out float[] left, out float[] width)
+    internal static void MeasureBlocks(Scene scene, out float[] left, out float[] width)
     {
         Transform scenery = H.FindRoot(scene, "Escenario").transform;
         SpriteRenderer[] blocks = scenery.Cast<Transform>()
