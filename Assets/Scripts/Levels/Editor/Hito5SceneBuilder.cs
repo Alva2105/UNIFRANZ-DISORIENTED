@@ -33,7 +33,7 @@ public static class Hito5SceneBuilder
     private static readonly string[] MezzanineBlocks = { "arca", "cajas" };
     private static readonly string[] Piso1Blocks = { "pasillo", "fisiologia", "histologia", "simulacion" };
     private static readonly string[] Piso5Blocks = { "biblioteca", "aula_dinamica" };
-    private static readonly string[] BienestarBlocks = { "sala" };
+    private static readonly string[] BienestarBlocks = { "sala", "consejeria" };
 
     // Cada piso se arma lejos en X (el Piso 2 de Eduardo queda donde está)
     private const float MezzanineOffsetX = 300f;
@@ -194,8 +194,14 @@ public static class Hito5SceneBuilder
         H.FindDeep(win, "Titulo").GetComponent<TMP_Text>().text = "¡SEMESTRE COMPLETADO!";
         TMP_Text message = H.FindDeep(win, "Mensaje").GetComponent<TMP_Text>();
         message.text = "Terminaste tu primer semestre en UNIFRANZ.";
+        // El resumen ocupa varias líneas: título arriba, resumen al medio y el botón abajo
+        var titleRect = (RectTransform)H.FindDeep(win, "Titulo");
+        titleRect.anchoredPosition = new Vector2(titleRect.anchoredPosition.x, 330f);
         var messageRect = (RectTransform)message.transform;
-        messageRect.sizeDelta = new Vector2(Mathf.Max(messageRect.sizeDelta.x, 1400f), Mathf.Max(messageRect.sizeDelta.y, 300f));
+        messageRect.anchoredPosition = new Vector2(messageRect.anchoredPosition.x, 140f);
+        messageRect.sizeDelta = new Vector2(Mathf.Max(messageRect.sizeDelta.x, 1500f), 280f);
+        var menuRect = (RectTransform)H.FindDeep(win, "Btn_VolverMenu");
+        menuRect.anchoredPosition = new Vector2(menuRect.anchoredPosition.x, -120f);
         message.fontSizeMax = message.fontSize;
         message.fontSizeMin = 12f;
         message.enableAutoSizing = true;
@@ -329,7 +335,7 @@ public static class Hito5SceneBuilder
             "¡Felicidades, nuev@! Bueno... ya no eres tan nuev@.",
             "El próximo semestre tú vas a ayudar a los que recién llegan."
         });
-        H.CreateExtra(content, "Docente", bs.X(0, 0.86f), floorY, t, true, "Lic. Ramírez - Docente", -3f, new[]
+        H.CreateExtra(content, "Docente", bs.X(1, 0.64f), floorY, t, true, "Lic. Ramírez - Docente", -3f, new[]
         {
             "Lo vi llegar el primer día al Auditorio, muy perdid@.",
             "Hoy terminó su semestre. Estoy orgulloso. Nos vemos el próximo."
