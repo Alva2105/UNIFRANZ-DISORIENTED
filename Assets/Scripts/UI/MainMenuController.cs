@@ -2,13 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-// Acciones del menú principal: Jugar abre la elección de personaje (y después el
-// selector de hitos), Opciones abre la laptop de Configuración, Créditos muestra al
-// equipo y Salir cierra el juego.
+// Acciones del menú principal: Jugar abre la elección de personaje y empieza en el
+// Hito 1, Seleccionar nivel abre el selector de hitos (y después la elección de
+// personaje para ese hito), Opciones abre la laptop de Configuración, Créditos
+// muestra al equipo y Salir cierra el juego.
 public class MainMenuController : MonoBehaviour
 {
     // --- Botones del menú ---
     [SerializeField] private Button playButton;
+    [SerializeField] private Button levelSelectButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
@@ -22,12 +24,14 @@ public class MainMenuController : MonoBehaviour
 
     [SerializeField] private SettingsPanel settings;
     [SerializeField] private CharacterSelectPanel characterSelect;
-    [Tooltip("Selector de hitos que se abre después de elegir personaje (opcional).")]
     [SerializeField] private LevelSelectPanel levelSelect;
     [SerializeField] private GameObject credits;
     [SerializeField] private Button creditsBackButton;
 
     private PlayerControls controls;
+
+    // La elección de personaje se abrió desde el selector de hitos (Atrás vuelve a él)
+    private bool fromLevelSelect;
 
     private void Awake()
     {
@@ -38,7 +42,13 @@ public class MainMenuController : MonoBehaviour
         quitButton.onClick.AddListener(Quit);
         creditsBackButton.onClick.AddListener(CloseCredits);
         settings.Closed += () => ClosePanels(optionsButton);
-        characterSelect.Closed += () => ClosePanels(playButton);
+        characterSelect.Closed += OnCharacterSelectClosed;
+        if (levelSelect != null)
+        {
+            levelSelectButton.onClick.AddListener(OpenLevelSelect);
+            levelSelect.Chosen += OnLevelChosen;
+            levelSelect.Back += () => ClosePanels(levelSelectButton);
+        }
     }
 
     private void Start()
@@ -48,6 +58,10 @@ public class MainMenuController : MonoBehaviour
         overlay.SetActive(false);
         settings.gameObject.SetActive(false);
         characterSelect.gameObject.SetActive(false);
+        if (levelSelect != null)
+        {
+            levelSelect.gameObject.SetActive(false);
+        }
         credits.SetActive(false);
         Select(playButton);
     }
@@ -95,7 +109,32 @@ public class MainMenuController : MonoBehaviour
     public void Play()
     {
         OpenPanel();
-        characterSelect.gameObject.SetActive(true);
+        fromLevelSelect = false;
+        characterSelect.Show(null);
+    }
+
+    public void OpenLevelSelect()
+    {
+        OpenPanel();
+        levelSelect.gameObject.SetActive(true);
+    }
+
+    private void OnLevelChosen(string scene)
+    {
+        levelSelect.gameObject.SetActive(false);
+        fromLevelSelect = true;
+        characterSelect.Show(scene);
+    }
+
+    private void OnCharacterSelectClosed()
+    {
+        if (fromLevelSelect)
+        {
+            fromLevelSelect = false;
+            levelSelect.gameObject.SetActive(true);
+            return;
+        }
+        ClosePanels(playButton);
     }
 
     public void OpenOptions()

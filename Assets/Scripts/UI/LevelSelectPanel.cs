@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Pantalla "Elige el hito" que se abre después de elegir personaje: un botón por cada
-// hito (1 a 5) que carga su escena. Atrás vuelve a la elección de personaje (Escape lo
-// maneja MainMenuController, igual que en los demás paneles).
+// Pantalla "Elige el hito" que abre Seleccionar nivel: un botón por cada hito (1 a 5).
+// Al elegir uno avisa a MainMenuController, que abre la elección de personaje para
+// ese hito. Atrás vuelve al menú (Escape lo maneja MainMenuController, igual que en
+// los demás paneles).
 public class LevelSelectPanel : MonoBehaviour
 {
     [Serializable]
@@ -19,6 +19,7 @@ public class LevelSelectPanel : MonoBehaviour
     [SerializeField] private Level[] levels;
     [SerializeField] private Button backButton;
 
+    public event Action<string> Chosen;
     public event Action Back;
 
     private void Awake()
@@ -26,7 +27,7 @@ public class LevelSelectPanel : MonoBehaviour
         foreach (Level level in levels)
         {
             string scene = level.scene;
-            level.button.onClick.AddListener(() => SceneManager.LoadScene(scene));
+            level.button.onClick.AddListener(() => Chosen?.Invoke(scene));
         }
         backButton.onClick.AddListener(Close);
     }

@@ -4,9 +4,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Pantalla "Elige tu personaje" que abre Jugar. Cada tarjeta muestra al personaje
-// respirando y, mientras está seleccionada, caminando. Al elegir se guarda en
-// GameSettings y se abre el selector de hitos (o, si no hay, se carga el nivel).
+// Pantalla "Elige tu personaje" que abre Jugar (o Seleccionar nivel, después de elegir
+// el hito). Cada tarjeta muestra al personaje respirando y, mientras está
+// seleccionada, caminando. Al elegir se guarda en GameSettings y se carga el nivel:
+// el Hito 1 desde Jugar, o el hito que se eligió en el selector.
 public class CharacterSelectPanel : MonoBehaviour
 {
     [Serializable]
@@ -18,9 +19,8 @@ public class CharacterSelectPanel : MonoBehaviour
         public Sprite[] walk;
     }
 
+    [Tooltip("Nivel que carga Jugar.")]
     [SerializeField] private string gameScene = "Hito1";
-    [Tooltip("Selector de hitos que se abre al elegir personaje (opcional).")]
-    [SerializeField] private LevelSelectPanel levelSelect;
     [SerializeField] private Card[] cards;
     [SerializeField] private Button backButton;
     [SerializeField] private float framesPerSecond = 8f;
@@ -28,6 +28,7 @@ public class CharacterSelectPanel : MonoBehaviour
     public event Action Closed;
 
     private float time;
+    private string sceneToLoad;
 
     private void Awake()
     {
@@ -37,11 +38,13 @@ public class CharacterSelectPanel : MonoBehaviour
             cards[i].button.onClick.AddListener(() => Choose(index));
         }
         backButton.onClick.AddListener(Close);
-        if (levelSelect != null)
-        {
-            levelSelect.gameObject.SetActive(false);
-            levelSelect.Back += () => gameObject.SetActive(true);
-        }
+    }
+
+    // Abre la pantalla; scene vacío carga el nivel de Jugar (Hito 1)
+    public void Show(string scene)
+    {
+        sceneToLoad = string.IsNullOrEmpty(scene) ? gameScene : scene;
+        gameObject.SetActive(true);
     }
 
     private void OnEnable()
@@ -66,13 +69,7 @@ public class CharacterSelectPanel : MonoBehaviour
     private void Choose(int index)
     {
         GameSettings.SelectedCharacter = index;
-        if (levelSelect != null)
-        {
-            gameObject.SetActive(false);
-            levelSelect.gameObject.SetActive(true);
-            return;
-        }
-        SceneManager.LoadScene(gameScene);
+        SceneManager.LoadScene(string.IsNullOrEmpty(sceneToLoad) ? gameScene : sceneToLoad);
     }
 
     public void Close()
