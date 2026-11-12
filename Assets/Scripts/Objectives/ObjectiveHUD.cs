@@ -8,8 +8,17 @@ public class ObjectiveHUD : MonoBehaviour
     [SerializeField] private ObjectiveTracker tracker;
     [SerializeField] private TMP_Text label;
 
+    // Tamaño mínimo de letra, relativo al original, al achicar un texto largo
+    private const float MinFontScale = 0.55f;
+
     private void Start()
     {
+        // En un bloque libre se listan todos los pendientes y el texto puede ser más ancho
+        // que la franja: la letra se achica solo lo necesario para que quepa
+        label.fontSizeMax = label.fontSize;
+        label.fontSizeMin = Mathf.Floor(label.fontSize * MinFontScale);
+        label.enableAutoSizing = true;
+
         tracker.Changed += Refresh;
         Refresh();
     }
