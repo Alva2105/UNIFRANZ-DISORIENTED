@@ -93,6 +93,22 @@ public abstract class MinigameBase : MonoBehaviour
         }
     }
 
+    // Si el nivel termina en medio (los errores suben el estrés y puede llegar la crisis
+    // de ansiedad), el minijuego se corta: no debe quedar encima de la pantalla final
+    // ni volver a activar al jugador y al estrés al terminar
+    private void Update()
+    {
+        if (IsOpen && LevelFlow.Instance != null && LevelFlow.Instance.IsOver)
+        {
+            StopAllCoroutines();
+            panel.SetActive(false);
+            controls.Player.Move.Disable();
+            controls.Player.Interact.Disable();
+            IsOpen = false;
+            openCount--;
+        }
+    }
+
     // Juego propio de cada minijuego; al terminar informa cuánto cambia el estrés
     protected abstract IEnumerator Play(System.Action<float> result);
 
