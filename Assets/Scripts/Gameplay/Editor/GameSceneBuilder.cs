@@ -363,6 +363,8 @@ public static class GameSceneBuilder
         cam.backgroundColor = Color.black;
         camGo.AddComponent<UniversalAdditionalCameraData>();
         camGo.AddComponent<CinemachineBrain>();
+        // Sin AudioListener no se oye nada: ni la música, ni los efectos, ni los latidos
+        camGo.AddComponent<AudioListener>();
 
         // Límites del pasillo para el confiner
         var bounds = new GameObject("LimitesCamara");
