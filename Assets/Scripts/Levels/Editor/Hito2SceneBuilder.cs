@@ -281,6 +281,8 @@ public static class Hito2SceneBuilder
         RectTransform panel = CreatePanel(ui, "MinijuegoHorario", "ARMA TU HORARIO");
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(H.FontPath);
         TextMeshProUGUI card = H.CreateLabel(panel, "Materia", font, "", 26f, Orange, 250f);
+        // Más espacio entre el nombre y los días permitidos: con esta fuente las dos líneas se enciman
+        card.lineSpacing = 50f;
         card.rectTransform.sizeDelta = new Vector2(1600f, 100f);
 
         var cells = new List<Object>();

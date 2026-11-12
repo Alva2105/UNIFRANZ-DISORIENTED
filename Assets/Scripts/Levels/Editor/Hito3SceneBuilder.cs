@@ -312,6 +312,8 @@ public static class Hito3SceneBuilder
         RectTransform panel = H2.CreatePanel(ui, "MinijuegoRolParciales", "ROL DE PARCIALES");
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(H.FontPath);
         TextMeshProUGUI card = H.CreateLabel(panel, "Materia", font, "", 26f, Orange, 250f);
+        // Más espacio entre el nombre y los días permitidos: con esta fuente las dos líneas se enciman
+        card.lineSpacing = 50f;
         card.rectTransform.sizeDelta = new Vector2(1600f, 100f);
         Object[] cells = CreateBoxes(panel, "Dia_", 5, 300f, new Vector2(270f, 230f), 10f, 18f, out Object[] texts);
         TextMeshProUGUI feedback = H.CreateLabel(panel, "Mensaje", font, "", 20f, TextLight, -200f);
