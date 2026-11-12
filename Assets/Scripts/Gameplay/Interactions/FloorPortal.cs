@@ -22,19 +22,31 @@ public class FloorPortal : Interactable
     [SerializeField] private float fadeSeconds = 0.35f;
     [SerializeField] private AudioClip travelClip;
 
-    private static bool traveling;
+    // Gradas que están haciendo el viaje (una a la vez en toda la escena)
+    private static FloorPortal traveling;
 
     public override void Interact()
     {
-        if (!traveling)
+        if (traveling == null)
         {
             StartCoroutine(Travel());
         }
     }
 
+    // Si la escena se descarga a mitad del fundido (Reintentar, volver al menú) la
+    // corrutina no termina: se libera aquí para que las gradas funcionen al volver
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        if (traveling == this)
+        {
+            traveling = null;
+        }
+    }
+
     private IEnumerator Travel()
     {
-        traveling = true;
+        traveling = this;
         player.enabled = false;
         AudioManager.PlaySfx(travelClip);
         yield return Fade(0f, 1f);
@@ -51,8 +63,9 @@ public class FloorPortal : Interactable
         yield return null;
 
         yield return Fade(1f, 0f);
-        player.enabled = true;
-        traveling = false;
+        // Si el nivel terminó durante el viaje (crisis de ansiedad) el jugador sigue quieto
+        player.enabled = LevelFlow.Instance == null || !LevelFlow.Instance.IsOver;
+        traveling = null;
     }
 
     private IEnumerator Fade(float from, float to)

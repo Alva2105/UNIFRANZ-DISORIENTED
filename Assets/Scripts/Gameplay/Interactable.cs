@@ -44,7 +44,7 @@ public class Interactable : MonoBehaviour
         Active.Add(this);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         Active.Remove(this);
     }
