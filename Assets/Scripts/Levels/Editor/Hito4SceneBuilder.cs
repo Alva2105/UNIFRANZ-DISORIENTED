@@ -13,7 +13,7 @@ using H2 = Hito2SceneBuilder;
 using H3 = Hito3SceneBuilder;
 
 // Arma la escena del Hito 4 (Parciales y exposiciones) según el plan de niveles: el
-// Subsuelo de la sede La Paz (pasillo, Sala de Anatomía y Anfiteatro) y, en la Planta
+// Subsuelo de la sede La Paz (pasillo, Lab. de Robótica y Sala de Proyectos) y, en la Planta
 // Baja, el Game Room y el Auditorio, unidos por las gradas. Es el punto de máxima
 // presión: el estrés sube rápido, hay tres aglomeraciones, las luces del Subsuelo
 // parpadean con Ansiedad y algunos NPCs cambian sus frases. Checklist de 6 objetivos
@@ -29,7 +29,7 @@ public static class Hito4SceneBuilder
     private static readonly string[] PreviousScenes =
         { "Assets/Scenes/Hito1.unity", "Assets/Scenes/Hito2.unity", "Assets/Scenes/Hito3.unity" };
 
-    private static readonly string[] SubsueloBlocks = { "pasillo", "anatomia", "anfiteatro" };
+    private static readonly string[] SubsueloBlocks = { "pasillo", "robotica", "proyectos" };
     // De la Planta Baja solo se usan los dos últimos bloques (el arte sigue continuo)
     private static readonly string[] PlantaBajaBlocks = { "game_room", "auditorio" };
     private const string ShadePath = "Assets/Sprites/Escenario/Subsuelo/subsuelo_sombra.png";
@@ -111,8 +111,8 @@ public static class Hito4SceneBuilder
         H.SetObjectives(tracker, new[]
         {
             ("grupo", "Reúnete con Camila, tu grupo de exposición"),
-            ("memoria", "Sala de Anatomía"),
-            ("repaso", "Repaso en el Anfiteatro"),
+            ("memoria", "Lab. de Robótica"),
+            ("repaso", "Repaso en la Sala de Proyectos"),
             ("crisis", "Ayuda a Diego"),
             ("exposicion", "Expón en el Auditorio (Planta Baja)"),
             ("salida", "Habla con Lucía en el Game Room")
@@ -161,7 +161,7 @@ public static class Hito4SceneBuilder
         CanvasGroup fade = H.CreateFade(ui);
 
         // --- Contenido ---
-        // Subsuelo: pasillo (gradas, Camila) -> Sala de Anatomía (Dr. Quispe) -> Anfiteatro (Kevin, Diego).
+        // Subsuelo: pasillo (gradas, Camila) -> Lab. de Robótica (Ing. Quispe) -> Sala de Proyectos (Kevin, Diego).
         // Planta Baja: Game Room (Lucía) -> Auditorio (exposición con el Lic. Ramírez).
         Transform content = new GameObject("Hito4_Contenido").transform;
         Transform t = player.transform;
@@ -181,8 +181,8 @@ public static class Hito4SceneBuilder
             new[]
             {
                 "¡Llegaste! Hoy es el día: parcial práctico y nuestra exposición.",
-                "Antes de exponer, repasa los huesos en la Sala de Anatomía con el Dr. Quispe.",
-                "Kevin da un repaso en el Anfiteatro... y Diego anda muy nervioso por ahí.",
+                "Antes de exponer, repasa las instrucciones con el Ing. Quispe en el Lab. de Robótica.",
+                "Kevin da un repaso en la Sala de Proyectos... y Diego anda muy nervioso por ahí.",
                 "Nos vemos en el Auditorio, en la Planta Baja. ¡Tú puedes!"
             },
             new string[0], 0f,
@@ -190,13 +190,13 @@ public static class Hito4SceneBuilder
             patrol: 0.6f);
         H.CreateCrowd(content, ss.X(0, 0.62f), ss.X(0, 0.92f), floorY, t);
 
-        // Sala de Anatomía: memoria de huesos con el Dr. Quispe
-        ObjectiveInteractable quispe = H.CreateNpc(content, "DocenteAnatomia", ss.X(1, 0.50f), floorY, t,
-            "Dr. Quispe - Docente de Anatomía", "Hablar", "memoria", 0f,
+        // Lab. de Robótica: memoria de instrucciones con el Ing. Quispe
+        ObjectiveInteractable quispe = H.CreateNpc(content, "DocenteAlgoritmos", ss.X(1, 0.50f), floorY, t,
+            "Ing. Quispe - Docente de Algoritmos", "Hablar", "memoria", 0f,
             new[]
             {
-                "Buenos días. El parcial práctico es reconocer huesos y su ubicación.",
-                "Las cartas están boca abajo: une cada hueso con su zona del cuerpo.",
+                "Buenos días. El parcial práctico es reconocer cada instrucción y lo que hace.",
+                "Las cartas están boca abajo: une cada instrucción con su significado.",
                 "Con calma. Si se pone nervios@, todo se le va a mezclar."
             },
             new[] { "Primero reúnase con su grupo; Camila lo busca en el pasillo." }, 3f,
@@ -207,7 +207,7 @@ public static class Hito4SceneBuilder
         CreateMoodExtra(content, "Valeria", ss.X(1, 0.28f), floorY, t, "Valeria - Estudiante",
             new[]
             {
-                "Llevo dos horas aquí repasando. Ya distingo la tibia del peroné... creo.",
+                "Llevo dos horas aquí repasando. Ya distingo un for de un while... creo.",
                 "Suerte en tu exposición. Dicen que el Lic. Ramírez pregunta mucho."
             },
             new[]
@@ -217,7 +217,7 @@ public static class Hito4SceneBuilder
             });
         CreateZone(content, ss.X(1, 0.62f), ss.X(1, 0.86f), t);    // estudiantes amontonados en los mesones
 
-        // Anfiteatro: repaso con ruido y Diego en crisis
+        // Sala de Proyectos: repaso con ruido y Diego en crisis
         ObjectiveInteractable kevin = H.CreateNpc(content, "Kevin", ss.X(2, 0.44f), floorY, t,
             "Kevin - Ayudante de cátedra", "Hablar", "repaso", 0f,
             new[]
@@ -289,6 +289,11 @@ public static class Hito4SceneBuilder
                 "Al grupo anterior lo hicieron llorar. Bueno... eso dicen."
             });
 
+        // --- Experiencia de usuario: guía al objetivo, avisos y nombre de cada piso ---
+        UxSceneBuilder.Add(scene, ui, systems, player, tracker,
+            ("LimitesCamara", "SUBSUELO", "Lab. de Robótica y Sala de Proyectos"),
+            ("LimitesCamara_PlantaBaja", "PLANTA BAJA", "Game Room y Auditorio"));
+
         EditorSceneManager.SaveScene(scene);
         UpdateBuildSettings();
         AssetDatabase.SaveAssets();
@@ -347,7 +352,7 @@ public static class Hito4SceneBuilder
 
     private static MemoryMinigame CreateMemoryMinigame(Transform ui, GameObject systems, GameObject player)
     {
-        RectTransform panel = H2.CreatePanel(ui, "MinijuegoMemoria", "MEMORIA DE ANATOMÍA");
+        RectTransform panel = H2.CreatePanel(ui, "MinijuegoMemoria", "MEMORIA DE PROGRAMACIÓN");
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(H.FontPath);
         TextMeshProUGUI prompt = H.CreateLabel(panel, "Indicacion", font, "", 24f, TextLight, 290f);
         // Dos filas de seis cartas; el cursor las recorre en orden
@@ -369,8 +374,8 @@ public static class Hito4SceneBuilder
         H.Set(game, "progressText", progress);
         SetPairs(game, new[]
         {
-            ("Fémur", "Muslo"), ("Húmero", "Brazo"), ("Tibia", "Pierna"),
-            ("Cráneo", "Cabeza"), ("Esternón", "Pecho"), ("Radio", "Antebrazo")
+            ("int", "Número entero"), ("float", "Número decimal"), ("bool", "Verdadero o falso"),
+            ("string", "Texto"), ("if", "Condición"), ("for", "Repetición")
         });
         return game;
     }
@@ -400,12 +405,12 @@ public static class Hito4SceneBuilder
         H.SetFloat(game, "stressPerMiss", 4f);
         H2.SetQuestions(game, new[]
         {
-            ("El hueso más largo del cuerpo humano es el ___.", new[] { "fémur", "radio", "húmero" }, 0),
-            ("El corazón tiene ___ cavidades.", new[] { "dos", "cuatro", "seis" }, 1),
+            ("Un bucle for sirve para ___ instrucciones.", new[] { "repetir", "borrar", "comentar" }, 0),
+            ("En la mayoría de lenguajes, el primer índice de un arreglo es ___.", new[] { "1", "0", "-1" }, 1),
             ("La rótula se encuentra en la ___.", new[] { "rodilla", "cadera", "muñeca" }, 0),
-            ("El músculo que separa el tórax del abdomen es el ___.", new[] { "bíceps", "trapecio", "diafragma" }, 2),
-            ("Las neuronas forman parte del sistema ___.", new[] { "óseo", "nervioso", "digestivo" }, 1),
-            ("El cráneo protege al ___.", new[] { "encéfalo", "hígado", "pulmón" }, 0)
+            ("Para guardar el nombre de una persona se usa el tipo ___.", new[] { "int", "bool", "string" }, 2),
+            ("El operador && significa ___.", new[] { "o", "y", "no" }, 1),
+            ("Una función que no devuelve nada se declara como ___.", new[] { "void", "int", "null" }, 0)
         });
         return game;
     }
@@ -458,9 +463,9 @@ public static class Hito4SceneBuilder
         H.Set(game, "progressText", progress);
         SetPresentationQuestions(game, new[]
         {
-            ("¿Cuántos huesos tiene el cuerpo humano adulto?", new[] { "206", "150", "312" }, 0),
-            ("¿Qué órgano bombea la sangre?", new[] { "El pulmón", "El corazón", "El riñón" }, 1),
-            ("¿Qué une un músculo con un hueso?", new[] { "Ligamento", "Cartílago", "Tendón" }, 2)
+            ("¿Qué es un algoritmo?", new[] { "Pasos ordenados", "Un lenguaje", "Un virus" }, 0),
+            ("¿Qué estructura elige entre dos caminos?", new[] { "for", "if / else", "print" }, 1),
+            ("¿Qué hace un depurador (debugger)?", new[] { "Borra código", "Compra memoria", "Busca errores" }, 2)
         });
         return game;
     }
@@ -522,7 +527,7 @@ public static class Hito4SceneBuilder
     private static void PrepareSprites()
     {
         H.PrepareSprites();
-        foreach (string sheet in new[] { "DocenteAnatomia", "Camila" })
+        foreach (string sheet in new[] { "DocenteAlgoritmos", "Camila" })
         {
             H.ImportPixelArt(H.NpcPath + sheet + "_Respirar.png", 8);
             H.ImportPixelArt(H.NpcPath + sheet + "_Caminar.png", 8);

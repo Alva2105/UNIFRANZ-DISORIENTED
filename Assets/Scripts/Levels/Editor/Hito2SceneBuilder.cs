@@ -219,6 +219,10 @@ public static class Hito2SceneBuilder
             new[] { "Todavía te quedan cosas por hacer hoy. Revisa tu objetivo." }, 2f,
             new[] { "Ya terminaste por hoy." });
 
+        // --- Experiencia de usuario: guía al objetivo, avisos y nombre de cada piso ---
+        UxSceneBuilder.Add(scene, ui, systems, player, tracker,
+            ("LimitesCamara", "PISO 2", "Aulas de Ingeniería de Sistemas"));
+
         EditorSceneManager.SaveScene(scene);
         UpdateBuildSettings();
         PointHito1ToHito2();
@@ -397,6 +401,7 @@ public static class Hito2SceneBuilder
         H.Set(game, "goodClip", H.Sfx("confirmation_002"));
         H.Set(game, "badClip", H.Sfx("error_004"));
         H.Set(game, "finishClip", H.Sfx("confirmation_004"));
+        UxSceneBuilder.AddMinigameIntro(game, panel);
         panel.SetActive(false);
     }
 

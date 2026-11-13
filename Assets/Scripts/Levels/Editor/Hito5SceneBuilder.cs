@@ -31,7 +31,7 @@ public static class Hito5SceneBuilder
     };
 
     private static readonly string[] MezzanineBlocks = { "arca", "cajas" };
-    private static readonly string[] Piso1Blocks = { "pasillo", "fisiologia", "histologia", "simulacion" };
+    private static readonly string[] Piso1Blocks = { "pasillo", "computacion", "redes", "servidores" };
     private static readonly string[] Piso5Blocks = { "biblioteca", "aula_dinamica" };
     private static readonly string[] BienestarBlocks = { "sala", "consejeria" };
 
@@ -160,23 +160,23 @@ public static class Hito5SceneBuilder
             ("Escribir mal una instrucción produce un error de ___.", new[] { "sintaxis", "lógica", "red" }, 0),
             ("¿Qué tipo de dato es verdadero o falso?", new[] { "entero", "booleano", "texto" }, 1)
         });
-        ExamMinigame exam2 = CreateExam(ui, systems, player, "MinijuegoExamenFisiologia", "examen2", "Fisiología", new[]
+        ExamMinigame exam2 = CreateExam(ui, systems, player, "MinijuegoExamenAlgoritmos", "examen2", "Algoritmos", new[]
         {
-            ("La unidad funcional del riñón es la ___.", new[] { "neurona", "nefrona", "alvéolo" }, 1),
-            ("El intercambio de gases ocurre en los ___.", new[] { "alvéolos", "bronquios", "riñones" }, 0),
-            ("La insulina la produce el ___.", new[] { "hígado", "páncreas", "estómago" }, 1),
-            ("La sangre oxigenada vuelve al corazón por las venas ___.", new[] { "cavas", "pulmonares", "yugulares" }, 1),
-            ("La frecuencia cardiaca en reposo es de ___ latidos por minuto.", new[] { "20 a 40", "60 a 100", "140 a 180" }, 1),
-            ("La hormona del estrés es el ___.", new[] { "cortisol", "glucagón", "estrógeno" }, 0)
+            ("En un diagrama de flujo, el rombo representa una ___.", new[] { "decisión", "entrada", "fin" }, 0),
+            ("El pseudocódigo sirve para ___ un algoritmo.", new[] { "compilar", "describir", "borrar" }, 1),
+            ("Si x = 5: si x > 3 mostrar(A), si no mostrar(B). ¿Qué se muestra?", new[] { "B", "A", "AB" }, 1),
+            ("Un algoritmo debe tener un número ___ de pasos.", new[] { "infinito", "aleatorio", "finito" }, 2),
+            ("Recorrer una lista elemento por elemento requiere un ___.", new[] { "bucle", "comentario", "error" }, 0),
+            ("suma = 0; para i de 1 a 3: suma = suma + i. ¿Cuánto vale suma?", new[] { "3", "6", "9" }, 1)
         });
-        ExamMinigame exam3 = CreateExam(ui, systems, player, "MinijuegoExamenAnatomia", "examen3", "Anatomía", new[]
+        ExamMinigame exam3 = CreateExam(ui, systems, player, "MinijuegoExamenLogica", "examen3", "Lógica", new[]
         {
-            ("¿Cuántas vértebras cervicales tiene el ser humano?", new[] { "5", "7", "12" }, 1),
-            ("El único hueso móvil del cráneo es la ___.", new[] { "maxila", "mandíbula", "órbita" }, 1),
-            ("La clavícula une el esternón con la ___.", new[] { "escápula", "costilla", "pelvis" }, 0),
-            ("El músculo más grande del cuerpo es el ___.", new[] { "glúteo mayor", "bíceps", "deltoides" }, 0),
-            ("El órgano más grande del cuerpo es la ___.", new[] { "piel", "hígado", "pulmón" }, 0),
-            ("El fémur se articula con la cadera en el ___.", new[] { "acetábulo", "codo", "tobillo" }, 0)
+            ("verdadero Y falso da como resultado ___.", new[] { "verdadero", "falso", "error" }, 1),
+            ("verdadero O falso da como resultado ___.", new[] { "verdadero", "falso", "nulo" }, 0),
+            ("¿Qué operador da el resto de una división (10 % 3)?", new[] { "%", "/", "*" }, 0),
+            ("Un bucle while termina cuando su condición es ___.", new[] { "verdadera", "falsa", "un número" }, 1),
+            ("¿Cuánto vale x después de: x = 2; x = x * 3?", new[] { "5", "6", "8" }, 1),
+            ("Dividir un problema grande en partes pequeñas se llama ___.", new[] { "modularizar", "compilar", "formatear" }, 0)
         });
         PriorityMinigame work = CreateWorkMinigame(ui, systems, player);
         BreathingMinigame breathing = H.CreateBreathingMinigame(ui, systems, player, "RESPIRA CON CAMILA");
@@ -251,10 +251,10 @@ public static class Hito5SceneBuilder
         H.SetVector(pay, "promptOffset", new Vector2(0f, 3.5f));
         CreateZone(content, mz.X(1, 0.04f), mz.X(1, 0.40f), t, "Valeria", "Andres");
 
-        // Piso 1: examen de Fisiología
+        // Piso 1: examen de Algoritmos en el Lab. de Computación
         ObjectiveInteractable paredes = H.CreateNpc(content, "DocenteLab", p1.X(1, 0.36f), floorY, t,
-            "Dra. Paredes - Examen de Fisiología", "Rendir", "examen2", 0f,
-            new[] { "Siéntese. El examen final de Fisiología tiene 6 preguntas.", "Lea con calma. Empiece cuando quiera." },
+            "Ing. Paredes - Examen de Algoritmos", "Rendir", "examen2", 0f,
+            new[] { "Siéntese. El examen final de Algoritmos tiene 6 preguntas.", "Lea con calma. Empiece cuando quiera." },
             firstPay, 3f,
             new[] { "Ya rindió mi examen. ¡Éxitos en los demás!" });
         BeginOnFinish(paredes, exam2);
@@ -275,7 +275,7 @@ public static class Hito5SceneBuilder
             new[] { "¡Ya terminé Programación! Era más fácil de lo que pensaba.", "Lee bien cada pregunta, eso es todo." },
             new[] { "Las preguntas cambian de lugar si te pones nervios@...", "Yo casi me quedo en blanco. Casi." });
 
-        // Piso 5: trabajo final en la biblioteca, crisis y examen de Anatomía
+        // Piso 5: trabajo final en la biblioteca, crisis y examen de Lógica
         ObjectiveInteractable elena = H.CreateNpc(content, "Bibliotecaria", p5.X(0, 0.62f), floorY, t,
             "Sra. Elena - Bibliotecaria", "Hablar", "trabajo", 0f,
             new[]
@@ -292,16 +292,16 @@ public static class Hito5SceneBuilder
             new[]
             {
                 "Oye... estás temblando. ¿Estás bien?",
-                "Tú me ayudaste en la Sala de Simulación. Ahora me toca a mí.",
+                "Tú me ayudaste en la Sala de Servidores. Ahora me toca a mí.",
                 "Respira conmigo antes del último examen. Despacio."
             },
             new[] { "¡Hola! Primero regulariza tu pago en Cajas, en el Mezzanine." }, 1f,
             new[] { "Ya estás mejor. ¡Vamos, que tú puedes!" });
         BeginOnFinish(camila, breathing);
 
-        ObjectiveInteractable quispe = H.CreateNpc(content, "DocenteAnatomia", p5.X(1, 0.50f), floorY, t,
-            "Dr. Quispe - Examen de Anatomía", "Rendir", "examen3", 0f,
-            new[] { "El examen final de Anatomía es aquí, en el Aula Dinámica.", "Seis preguntas. Respire hondo y empiece." },
+        ObjectiveInteractable quispe = H.CreateNpc(content, "DocenteAlgoritmos", p5.X(1, 0.50f), floorY, t,
+            "Ing. Quispe - Examen de Lógica", "Rendir", "examen3", 0f,
+            new[] { "El examen final de Lógica de Programación es aquí, en el Aula Dinámica.", "Seis preguntas. Respire hondo y empiece." },
             firstPay, 3f,
             new[] { "Examen entregado. Ya puede descansar." });
         BeginOnFinish(quispe, exam3);
@@ -328,7 +328,7 @@ public static class Hito5SceneBuilder
         H.CreateExtra(content, "Companero", bs.X(0, 0.40f), floorY, t, false, "Diego - Compañero", -3f, new[]
         {
             "¡Lo logramos! Primer semestre terminado.",
-            "Gracias por ayudarme en el Anfiteatro. Sin eso no la contaba."
+            "Gracias por ayudarme en la Sala de Proyectos. Sin eso no la contaba."
         });
         H.CreateExtra(content, "Kevin", bs.X(0, 0.72f), floorY, t, true, "Kevin - Ayudante", -3f, new[]
         {
@@ -340,6 +340,14 @@ public static class Hito5SceneBuilder
             "Lo vi llegar el primer día al Auditorio, muy perdid@.",
             "Hoy terminó su semestre. Estoy orgulloso. Nos vemos el próximo."
         });
+
+        // --- Experiencia de usuario: guía al objetivo, avisos y nombre de cada piso ---
+        UxSceneBuilder.Add(scene, ui, systems, player, tracker,
+            ("LimitesCamara", "PISO 2", "Aulas de Ingeniería de Sistemas"),
+            ("LimitesCamara_Mezzanine", "MEZZANINE", "ARCA y Cajas"),
+            ("LimitesCamara_Piso1", "PISO 1", "Laboratorios de Computación y Redes"),
+            ("LimitesCamara_Piso5", "PISO 5", "Biblioteca y Aula Dinámica"),
+            ("LimitesCamara_Bienestar", "BIENESTAR ESTUDIANTIL", "Sala y Consejería"));
 
         EditorSceneManager.SaveScene(scene);
         UpdateBuildSettings();
@@ -468,7 +476,7 @@ public static class Hito5SceneBuilder
         var tasks = new[]
         {
             ("Devolver libros", 4), ("Entregar trabajo final", 1), ("Ensayo de Inglés", 5),
-            ("Estudiar Anatomía", 2), ("Pagar inscripción", 6), ("Repasar Fisiología", 3)
+            ("Estudiar Lógica", 2), ("Pagar inscripción", 6), ("Repasar Algoritmos", 3)
         };
         array.arraySize = tasks.Length;
         for (int i = 0; i < tasks.Length; i++)
@@ -500,7 +508,7 @@ public static class Hito5SceneBuilder
     private static void PrepareSprites()
     {
         H.PrepareSprites();
-        foreach (string sheet in new[] { "DocenteLab", "Bibliotecaria", "Camila", "DocenteAnatomia" })
+        foreach (string sheet in new[] { "DocenteLab", "Bibliotecaria", "Camila", "DocenteAlgoritmos" })
         {
             H.ImportPixelArt(H.NpcPath + sheet + "_Respirar.png", 8);
             H.ImportPixelArt(H.NpcPath + sheet + "_Caminar.png", 8);

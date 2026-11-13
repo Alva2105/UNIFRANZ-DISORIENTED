@@ -260,6 +260,11 @@ public static class Hito1SceneBuilder
         });
         CreateCajas(content, mz.X(1, 0.56f), floorY, t);                 // dentro de la Caja 2
 
+        // --- Experiencia de usuario: guía al objetivo, avisos y nombre de cada piso ---
+        UxSceneBuilder.Add(scene, ui, systems, player, tracker,
+            ("LimitesCamara", "PLANTA BAJA", "Hall, Recepción, Admisiones, Cafetería y Auditorio"),
+            ("LimitesCamara_Mezzanine", "MEZZANINE", "ARCA y Cajas"));
+
         EditorSceneManager.SaveScene(scene);
         UpdateBuildSettings();
         PointMenuToHito1();
@@ -686,8 +691,8 @@ public static class Hito1SceneBuilder
         ConfigureInteractable(interactable, "Activar", "Tótem de Orientación", new[]
         {
             "Tocas la pantalla. El mapa del Bloque A se enciende.",
-            "Subsuelo: Sala de Anatomía. Planta Baja: Recepción, Admisiones, Cafetería y Auditorio. Mezzanine: Cajas.",
-            "Piso 1 y 2: laboratorios y aulas. Piso 5: Biblioteca. Piso superior: Bienestar Estudiantil.",
+            "Subsuelo: Lab. de Robótica. Planta Baja: Recepción, Admisiones, Cafetería y Auditorio. Mezzanine: Cajas.",
+            "Piso 1: laboratorios de Computación y Redes. Piso 2: aulas. Piso 5: Biblioteca. Arriba: Bienestar Estudiantil.",
             "El tótem marca tu ruta. Ahora sabes cómo moverte por el bloque."
         }, -5f);
         SetString(interactable, "objectiveId", "totem");

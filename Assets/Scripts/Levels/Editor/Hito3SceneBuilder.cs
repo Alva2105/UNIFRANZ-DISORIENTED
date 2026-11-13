@@ -12,7 +12,7 @@ using H = Hito1SceneBuilder;
 using H2 = Hito2SceneBuilder;
 
 // Arma la escena del Hito 3 (Mitad del semestre) según el plan de niveles: el Piso 1
-// (laboratorios de Fisiología e Histología y Sala de Simulación) y el Piso 5 (Biblioteca
+// (laboratorios de Computación y de Redes y Sala de Servidores) y el Piso 5 (Biblioteca
 // y Aula Dinámica) de la sede La Paz, unidos por las gradas. El ascensor siempre está
 // lleno. Checklist de 7 objetivos con un bloque central que se hace en cualquier orden,
 // reloj de cierre de la biblioteca y cuatro minijuegos. Reutiliza las utilidades de los
@@ -28,7 +28,7 @@ public static class Hito3SceneBuilder
     private const string Hito2ScenePath = "Assets/Scenes/Hito2.unity";
     private const string NextScene = "Hito4";
 
-    private static readonly string[] Piso1Blocks = { "pasillo", "fisiologia", "histologia", "simulacion" };
+    private static readonly string[] Piso1Blocks = { "pasillo", "computacion", "redes", "servidores" };
     private static readonly string[] Piso5Blocks = { "biblioteca", "aula_dinamica" };
     private static readonly string[] NewSheets = { "DocenteLab", "Bibliotecaria", "Camila" };
 
@@ -112,11 +112,11 @@ public static class Hito3SceneBuilder
         H.SetObjectives(tracker, new[]
         {
             ("rol", "Arma tu rol de parciales en los casilleros"),
-            ("laboratorio", "Fisiología"),
+            ("laboratorio", "Lab. de Computación"),
             ("biblioteca", "Biblioteca (Piso 5)"),
-            ("simulacion", "Simulación"),
+            ("simulacion", "Sala de Servidores"),
             ("pendientes", "Aula Dinámica (Piso 5)"),
-            ("informe", "Entrega tu informe en Histología"),
+            ("informe", "Entrega tu informe en el Lab. de Redes"),
             ("salida", "Termina el día: toma el ascensor")
         });
         SetAnyOrder(tracker, "laboratorio", "biblioteca", "simulacion", "pendientes");
@@ -169,7 +169,7 @@ public static class Hito3SceneBuilder
         CanvasGroup fade = H.CreateFade(ui);
 
         // --- Contenido ---
-        // Piso 1: pasillo (casilleros, ascensor, gradas) -> Fisiología -> Histología -> Simulación.
+        // Piso 1: pasillo (casilleros, ascensor, gradas) -> Lab. de Computación -> Lab. de Redes -> Sala de Servidores.
         // Piso 5: Biblioteca (gradas, estantes, mostrador) -> Aula Dinámica.
         Transform content = new GameObject("Hito3_Contenido").transform;
         Transform t = player.transform;
@@ -211,23 +211,23 @@ public static class Hito3SceneBuilder
         H.CreatePortal(content, "Gradas_Bajar", p5.X(0, 0.14f), floorY, "Bajar al Piso 1",
             p1Arrival, p1Bounds, movement, vcam, confiner, fade);
 
-        // Laboratorio de Fisiología
+        // Laboratorio de Computación
         ObjectiveInteractable teacher = H.CreateNpc(content, "DocenteLab", p1.X(1, 0.36f), floorY, t,
-            "Dra. Paredes - Docente de laboratorio", "Hablar", "laboratorio", 0f,
+            "Ing. Paredes - Docente de laboratorio", "Hablar", "laboratorio", 0f,
             new[]
             {
-                "Llegas justo para la práctica. Soy la Dra. Paredes.",
-                "Hoy preparamos soluciones: el orden de los reactivos es lo más importante.",
+                "Llegas justo para la práctica. Soy la Ing. Paredes.",
+                "Hoy ejecutamos un algoritmo: el orden de las instrucciones es lo más importante.",
                 "Te muestro la secuencia una vez y tú la repites. Concéntrate."
             },
             new[] { "Primero organiza tu rol de parciales; el aviso está en los casilleros." }, 2f,
-            new[] { "Buen trabajo. No olvides entregar tu informe en Histología." });
+            new[] { "Buen trabajo. No olvides entregar tu informe en el Lab. de Redes." });
         H.SetBool(teacher, "completesObjective", false);
         UnityEditor.Events.UnityEventTools.AddPersistentListener(H.GetEvent(teacher, typeof(Interactable), "onFinished"), lab.Begin);
 
-        // Laboratorio de Histología: entrega del informe
+        // Laboratorio de Redes: entrega del informe
         H.CreateNpc(content, "Kevin", p1.X(2, 0.36f), floorY, t,
-            "Kevin - Ayudante de Histología", "Hablar", "informe", -10f,
+            "Kevin - Ayudante del Lab. de Redes", "Hablar", "informe", -10f,
             new[]
             {
                 "¡Hey! ¿Vienes a entregar tu informe? Justo a tiempo.",
@@ -241,14 +241,14 @@ public static class Hito3SceneBuilder
             }, 3f,
             new[] { "Tu informe ya está entregado. ¡Nos vemos en los parciales!" });
 
-        // Sala de Simulación: Camila entra en pánico en su primer caso simulado
+        // Sala de Servidores: a Camila se le cayó el servidor de su práctica y entra en pánico
         ObjectiveInteractable camila = H.CreateNpc(content, "Camila", p1.X(3, 0.50f), floorY, t,
             "Camila - Compañera", "Hablar", "simulacion", 0f,
             new[]
             {
-                "N-no puedo... el maniquí \"se descompensó\" y me quedé en blanco.",
-                "Siento que el corazón se me sale. ¿Y si me pasa en un caso real?",
-                "(Le propones respirar juntas como te enseñó Lucía.)"
+                "N-no puedo... mi servidor se cayó en plena práctica y me quedé en blanco.",
+                "Siento que el corazón se me sale. ¿Y si borré todo el proyecto?",
+                "(Le propones respirar juntos antes de revisar el error, como enseñó Lucía.)"
             },
             new[] { "Ahora no puedo hablar... (Primero revisa tu rol de parciales.)" }, 2f,
             new[] { "Gracias. Ya puedo volver a intentarlo. Respirar sí funciona." },
@@ -272,7 +272,7 @@ public static class Hito3SceneBuilder
 
         H.CreateExtra(content, "Valeria", p5.X(0, 0.42f), floorY, t, false, "Valeria - Estudiante", -3f, new[]
         {
-            "Shh... estoy estudiando para el parcial de Anatomía.",
+            "Shh... estoy estudiando para el parcial de Programación.",
             "Aquí arriba hay silencio y buena vista. Me ayuda a concentrarme."
         });
 
@@ -296,6 +296,11 @@ public static class Hito3SceneBuilder
             "Así por lo menos sé por dónde empezar."
         });
         H.CreateRestPoint(content, p5.X(1, 0.95f), floorY);
+
+        // --- Experiencia de usuario: guía al objetivo, avisos y nombre de cada piso ---
+        UxSceneBuilder.Add(scene, ui, systems, player, tracker,
+            ("LimitesCamara", "PISO 1", "Laboratorios de Computación y Redes, Sala de Servidores"),
+            ("LimitesCamara_Piso5", "PISO 5", "Biblioteca y Aula Dinámica"));
 
         EditorSceneManager.SaveScene(scene);
         UpdateBuildSettings();
@@ -329,10 +334,10 @@ public static class Hito3SceneBuilder
         // Las más restringidas van primero: así ninguna elección deja el rol sin solución
         H2.SetSubjects(game, new[]
         {
-            ("Parcial de Bioquímica", "Bioquímica", new[] { 3 }),
-            ("Parcial de Fisiología", "Fisiología", new[] { 1, 3 }),
-            ("Parcial de Anatomía", "Anatomía", new[] { 0, 1 }),
-            ("Parcial de Histología", "Histología", new[] { 2, 4 }),
+            ("Parcial de Programación", "Programación", new[] { 3 }),
+            ("Parcial de Algoritmos", "Algoritmos", new[] { 1, 3 }),
+            ("Parcial de Cálculo I", "Cálculo", new[] { 0, 1 }),
+            ("Parcial de Física I", "Física", new[] { 2, 4 }),
             ("Parcial de Inglés Técnico", "Inglés", new[] { 2, 4 })
         });
         return game;
@@ -340,10 +345,10 @@ public static class Hito3SceneBuilder
 
     private static LabSequenceMinigame CreateLabMinigame(Transform ui, GameObject systems, GameObject player)
     {
-        RectTransform panel = H2.CreatePanel(ui, "MinijuegoLaboratorio", "PRÁCTICA DE LABORATORIO");
+        RectTransform panel = H2.CreatePanel(ui, "MinijuegoLaboratorio", "EJECUTA EL ALGORITMO");
         TMP_FontAsset font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(H.FontPath);
         TextMeshProUGUI prompt = H.CreateLabel(panel, "Indicacion", font, "", 24f, TextLight, 270f);
-        Object[] tubes = CreateBoxes(panel, "Tubo_", 4, 300f, new Vector2(200f, 280f), 20f, 18f, out Object[] texts);
+        Object[] tubes = CreateBoxes(panel, "Instruccion_", 4, 300f, new Vector2(200f, 280f), 20f, 18f, out Object[] texts);
         TextMeshProUGUI feedback = H.CreateLabel(panel, "Mensaje", font, "", 20f, TextLight, -200f);
         TextMeshProUGUI progress = H.CreateLabel(panel, "Progreso", font, "", 18f, Orange, -270f);
 
@@ -351,6 +356,7 @@ public static class Hito3SceneBuilder
         H2.ConfigureMinigame(game, panel.gameObject, player, "laboratorio");
         H.SetArray(game, "tubes", tubes);
         H.SetArray(game, "tubeTexts", texts);
+        H.SetStrings(game, "reagentNames", new[] { "leer()", "si", "mientras", "mostrar()" });
         H.Set(game, "promptText", prompt);
         H.Set(game, "feedbackText", feedback);
         H.Set(game, "progressText", progress);
@@ -379,9 +385,9 @@ public static class Hito3SceneBuilder
         H.Set(game, "progressText", progress);
         SetRequests(game, new[]
         {
-            ("Fisiología Médica", new[] { "612 GUY", "612 GAY", "621 GUY", "612 GUI", "616 GUY", "612 GYU" }, 0),
-            ("Histología: Texto y Atlas", new[] { "611 ROS", "611 RSO", "611 ROS 2", "616 ROS", "611 RAS", "661 ROS" }, 2),
-            ("Bioquímica Ilustrada", new[] { "572 HAR", "527 HAR", "572 HRA", "572 HAB", "572 HAR", "752 HAR" }, 4)
+            ("Fundamentos de Programación", new[] { "005.1 JOY", "005.1 JYO", "005.7 JOY", "005.1 JOI", "050.1 JOY", "005.1 YOJ" }, 0),
+            ("Estructuras de Datos", new[] { "005.73 CAI", "005.37 CAI", "005.73 CAI 2", "005.73 CIA", "005.3 CAI", "050.73 CAI" }, 2),
+            ("Introducción a los Algoritmos", new[] { "005.1 CRO", "005.11 COR", "001.5 COR", "005.1 COK", "005.1 COR", "005.1 CQR" }, 4)
         });
         return game;
     }
@@ -404,16 +410,16 @@ public static class Hito3SceneBuilder
         H.Set(game, "progressText", progress);
         SetTasks(game, new[]
         {
-            ("Lectura de Histología", 5),
+            ("Lectura de Algoritmos", 5),
             ("Informe de laboratorio", 1),
             ("Exposición grupal", 3),
-            ("Parcial de Anatomía", 2),
-            ("Guía de Bioquímica", 4)
+            ("Parcial de Programación", 2),
+            ("Guía de Cálculo", 4)
         });
         return game;
     }
 
-    // Fila de casillas centradas con un texto adentro (días, tubos, lomos, tarjetas)
+    // Fila de casillas centradas con un texto adentro (días, instrucciones, lomos, tarjetas)
     internal static Object[] CreateBoxes(RectTransform panel, string prefix, int count, float spacing, Vector2 size, float y,
         float fontSize, out Object[] texts)
     {
