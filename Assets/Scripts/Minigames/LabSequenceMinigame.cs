@@ -4,15 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Minijuego "Práctica de laboratorio": la docente muestra en qué orden se agregan los
-// reactivos (los tubos se iluminan uno por uno) y el jugador repite la secuencia con
-// izquierda/derecha e Interactuar. Cada ronda la secuencia es más larga. Un error sube
-// el estrés y repite la misma ronda; terminar sin errores calma.
+// Minijuego "Ejecuta el algoritmo": la docente muestra en qué orden se ejecutan las
+// instrucciones de un programa (los bloques se iluminan uno por uno) y el jugador
+// repite la secuencia con izquierda/derecha e Interactuar. Cada ronda el algoritmo es
+// más largo. Un error sube el estrés y repite la misma ronda; terminar sin errores calma.
 public class LabSequenceMinigame : MinigameBase
 {
     [Header("Laboratorio")]
-    [Tooltip("Nombre de cada tubo, en el mismo orden que las casillas.")]
-    [SerializeField] private string[] reagentNames = { "Azul", "Rojo", "Verde", "Amarillo" };
+    [Tooltip("Nombre de cada instrucción, en el mismo orden que las casillas.")]
+    [SerializeField] private string[] reagentNames = { "leer()", "si", "mientras", "mostrar()" };
     [SerializeField] private Image[] tubes;
     [SerializeField] private TMP_Text[] tubeTexts;
     [SerializeField] private TMP_Text promptText;
@@ -35,6 +35,9 @@ public class LabSequenceMinigame : MinigameBase
     [SerializeField] private Color dimColor = new Color(0.16f, 0.18f, 0.3f);
     [SerializeField] private Color cursorColor = new Color(0.98f, 0.44f, 0.08f);
 
+    protected override string HowToPlay =>
+        $"Mira en qué orden se iluminan las instrucciones.\nLuego ejecútalas en el mismo orden.\n\n< > elige la instrucción     {ControlPlatform.InteractHint} ejecuta";
+
     protected override IEnumerator Play(Action<float> result)
     {
         string key = ControlPlatform.InteractHint;
@@ -56,7 +59,7 @@ public class LabSequenceMinigame : MinigameBase
             for (int attempt = 0; attempt <= maxRetries && !passed; attempt++)
             {
                 progressText.text = $"Ronda {round + 1}/{roundLengths.Length}";
-                promptText.text = "Observa el orden de los reactivos...";
+                promptText.text = "Observa el orden de las instrucciones...";
                 feedbackText.text = "";
                 Paint(-1, -1);
                 yield return new WaitForSeconds(0.8f);
@@ -72,8 +75,8 @@ public class LabSequenceMinigame : MinigameBase
                 }
 
                 // El jugador la repite
-                promptText.text = "Ahora agrega los reactivos en el mismo orden";
-                feedbackText.text = $"< > elige el tubo   {key} agrega";
+                promptText.text = "Ahora ejecútalas en el mismo orden";
+                feedbackText.text = $"< > elige la instrucción   {key} ejecuta";
                 int cursor = 0;
                 int step = 0;
                 Paint(cursor, -1);
@@ -93,7 +96,7 @@ public class LabSequenceMinigame : MinigameBase
                         }
                         step++;
                         AudioManager.PlaySfx(goodClip, 0.6f);
-                        feedbackText.text = $"Reactivo {step}/{sequence.Length}";
+                        feedbackText.text = $"Instrucción {step}/{sequence.Length}";
                         Paint(cursor, cursor);
                     }
                     yield return null;
@@ -102,13 +105,13 @@ public class LabSequenceMinigame : MinigameBase
                 passed = step == sequence.Length;
                 if (passed)
                 {
-                    feedbackText.text = "¡La mezcla salió perfecta!";
+                    feedbackText.text = "¡El programa funcionó sin errores!";
                 }
                 else
                 {
                     errors++;
                     AudioManager.PlaySfx(badClip);
-                    feedbackText.text = "¡Ese no era! La mezcla cambió de color... otra vez.";
+                    feedbackText.text = "¡Error de ejecución! Esa no era la instrucción... otra vez.";
                     if (StressSystem.Instance != null)
                     {
                         StressSystem.Instance.Add(stressPerError);
@@ -122,11 +125,11 @@ public class LabSequenceMinigame : MinigameBase
         promptText.text = errors == 0 ? "¡Práctica impecable!" : "Práctica terminada.";
         progressText.text = errors == 0 ? "Sin errores" : $"Errores: {errors}";
         feedbackText.text = errors == 0 ? "La docente te felicita. Te sientes capaz."
-            : "Equivocarse en el laboratorio también es aprender.";
+            : "Depurar errores también es aprender a programar.";
         result(errors == 0 ? reliefPerfect : reliefPerfect * 0.3f);
     }
 
-    // El tubo encendido muestra su color; el cursor se marca en naranja y el resto, apagado
+    // La instrucción encendida muestra su color; el cursor se marca en naranja y el resto, apagado
     private void Paint(int cursor, int lit)
     {
         for (int i = 0; i < tubes.Length; i++)

@@ -36,6 +36,8 @@ public class ObjectiveInteractable : Interactable
     [Tooltip("Se dispara al cerrar el diálogo cuando el objetivo ya estaba hecho (p. ej. repetir un minijuego).")]
     [SerializeField] private UnityEvent onDoneFinished = new UnityEvent();
 
+    public string ObjectiveId => objectiveId;
+
     public override void Interact()
     {
         ObjectiveTracker tracker = ObjectiveTracker.Instance;

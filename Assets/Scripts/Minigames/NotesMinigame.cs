@@ -36,6 +36,9 @@ public class NotesMinigame : MinigameBase
     [SerializeField] private Color rightColor = new Color(0.2f, 0.6f, 0.35f);
     [SerializeField] private Color wrongColor = new Color(0.75f, 0.2f, 0.2f);
 
+    protected override string HowToPlay =>
+        $"El docente dicta una frase incompleta.\nElige la palabra correcta antes de que se acabe la barra.\n\n< > elige la palabra     {ControlPlatform.InteractHint} anota";
+
     protected override IEnumerator Play(Action<float> result)
     {
         int hits = 0;

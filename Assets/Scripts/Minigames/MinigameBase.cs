@@ -19,6 +19,11 @@ public abstract class MinigameBase : MonoBehaviour
     [Tooltip("Objetivo del Checklist que se completa al terminar.")]
     [SerializeField] private string objectiveId;
 
+    [Header("Instrucciones (opcional)")]
+    [Tooltip("Tarjeta que explica el minijuego antes de empezar; se cierra con Interactuar.")]
+    [SerializeField] private GameObject introGroup;
+    [SerializeField] private TMPro.TMP_Text introText;
+
     [SerializeField] protected AudioClip moveClip;
     [SerializeField] protected AudioClip goodClip;
     [SerializeField] protected AudioClip badClip;
@@ -37,7 +42,14 @@ public abstract class MinigameBase : MonoBehaviour
     {
         controls = new PlayerControls();
         panel.SetActive(false);
+        if (introGroup != null)
+        {
+            introGroup.SetActive(false);
+        }
     }
+
+    // Qué hay que hacer y con qué teclas; cada minijuego lo explica a su manera
+    protected virtual string HowToPlay => "";
 
     protected virtual void OnDestroy()
     {
@@ -70,6 +82,20 @@ public abstract class MinigameBase : MonoBehaviour
 
         // Un cuadro de espera: la tecla que abrió el minijuego no cuenta como respuesta
         yield return null;
+
+        // Instrucciones: el jugador lee y empieza cuando quiere
+        if (introGroup != null && !string.IsNullOrEmpty(HowToPlay))
+        {
+            introGroup.SetActive(true);
+            introText.text = $"{HowToPlay}\n\n<color=#F96F13>Presiona {ControlPlatform.InteractHint} para empezar</color>";
+            while (!ConfirmPressed())
+            {
+                yield return null;
+            }
+            introGroup.SetActive(false);
+            yield return null;
+        }
+
         float stressChange = 0f;
         failed = false;
         yield return Play(value => stressChange = value);

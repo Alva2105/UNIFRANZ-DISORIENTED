@@ -25,6 +25,8 @@ public class FloorPortal : Interactable
     // Gradas que están haciendo el viaje (una a la vez en toda la escena)
     private static FloorPortal traveling;
 
+    public Transform Destination => destination;
+
     public override void Interact()
     {
         if (traveling == null)

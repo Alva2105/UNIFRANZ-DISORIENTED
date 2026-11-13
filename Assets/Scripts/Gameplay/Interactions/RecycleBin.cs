@@ -11,6 +11,8 @@ public class RecycleBin : Interactable
 
     private int deposited;
 
+    public string ObjectiveId => objectiveId;
+
     private void Start()
     {
         if (ObjectiveTracker.Instance != null)

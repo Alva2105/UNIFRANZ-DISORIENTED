@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Estado de un objetivo respecto al avance del jugador
@@ -52,6 +53,29 @@ public class ObjectiveTracker : MonoBehaviour
     public bool AllDone => currentIndex >= objectives.Length;
     public string CurrentDescription => AllDone ? "Completado" : DescribeCurrent();
 
+    // Último objetivo completado (para el aviso de progreso)
+    public string LastCompletedDescription { get; private set; }
+
+    // Objetivos activos ahora (varios dentro de un bloque libre)
+    public IEnumerable<string> CurrentIds
+    {
+        get
+        {
+            foreach (Objective objective in objectives)
+            {
+                if (GetState(objective.id) == ObjectiveState.Current)
+                {
+                    yield return objective.id;
+                }
+            }
+        }
+    }
+
+    public string DescriptionOf(string id)
+    {
+        return Array.Find(objectives, o => o.id == id)?.description ?? "";
+    }
+
     private void Awake()
     {
         Instance = this;
@@ -90,6 +114,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
 
         done[Array.FindIndex(objectives, o => o.id == id)] = true;
+        LastCompletedDescription = DescriptionOf(id);
         while (currentIndex < objectives.Length && done[currentIndex])
         {
             currentIndex++;

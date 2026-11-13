@@ -53,6 +53,9 @@ public class PresentationMinigame : MinigameBase
     [SerializeField] private Color calmColor = new Color(0.2f, 0.6f, 0.35f, 0.8f);
     [SerializeField] private Color nervousColor = new Color(0.75f, 0.2f, 0.2f, 0.8f);
 
+    protected override string HowToPlay =>
+        $"Mantén la aguja naranja dentro de la zona verde mientras expones.\nEl jurado te hará preguntas: elige la respuesta correcta.\n\nmantén < o > para mover la aguja     {ControlPlatform.InteractHint} responde";
+
     private float position;
 
     protected override IEnumerator Play(Action<float> result)

@@ -48,6 +48,9 @@ public class ExamMinigame : MinigameBase
     public int Attempts { get; private set; }
     public bool Passed => BestGrade >= passGrade;
 
+    protected override string HowToPlay =>
+        $"Responde cada pregunta antes de que se acabe su tiempo.\nNecesitas 51/100 para aprobar; si repruebas, puedes volver a rendirlo.\n\n< > elige     {ControlPlatform.InteractHint} responde";
+
     private string[] shown;
     private int shownCorrect;
 

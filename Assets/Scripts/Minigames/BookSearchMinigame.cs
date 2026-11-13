@@ -37,6 +37,9 @@ public class BookSearchMinigame : MinigameBase
     [SerializeField] private Color rightColor = new Color(0.2f, 0.6f, 0.35f);
     [SerializeField] private Color wrongColor = new Color(0.75f, 0.2f, 0.2f);
 
+    protected override string HowToPlay =>
+        $"Busca en el estante el libro con el código exacto.\nCuidado: los códigos se parecen mucho.\n\n< > recorre el estante     {ControlPlatform.InteractHint} saca el libro";
+
     protected override IEnumerator Play(Action<float> result)
     {
         int hits = 0;

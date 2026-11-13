@@ -37,6 +37,9 @@ public class ScheduleMinigame : MinigameBase
     [SerializeField] private Color cursorColor = new Color(0.98f, 0.44f, 0.08f);
     [SerializeField] private Color filledColor = new Color(0.2f, 0.5f, 0.35f);
 
+    protected override string HowToPlay =>
+        $"Coloca cada materia en un día en que se dicta.\nCada día admite una sola materia.\n\n< > elige el día     {ControlPlatform.InteractHint} coloca la materia";
+
     private string[] placed;
     private int cursor;
 

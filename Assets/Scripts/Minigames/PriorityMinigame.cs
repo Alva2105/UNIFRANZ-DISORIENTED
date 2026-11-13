@@ -33,6 +33,9 @@ public class PriorityMinigame : MinigameBase
     [SerializeField] private Color cursorColor = new Color(0.98f, 0.44f, 0.08f);
     [SerializeField] private Color doneColor = new Color(0.2f, 0.5f, 0.35f);
 
+    protected override string HowToPlay =>
+        $"Agenda primero la tarea que vence antes,\nhasta ordenar todas.\n\n< > elige la tarea     {ControlPlatform.InteractHint} agéndala";
+
     private int[] order;
     private int cursor;
 

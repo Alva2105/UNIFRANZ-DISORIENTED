@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Minijuego "Memoria de anatomía": cartas boca abajo con huesos y la zona del cuerpo
-// donde están. Con izquierda/derecha se recorre la mesa y con Interactuar se da vuelta
-// una carta; hay que encontrar cada hueso con su zona. Cada error sube el estrés y, si
+// Minijuego "Memoria de programación": cartas boca abajo con instrucciones o tipos de
+// dato y su significado. Con izquierda/derecha se recorre la mesa y con Interactuar se
+// da vuelta una carta; hay que unir cada instrucción con lo que hace. Cada error sube el estrés y, si
 // el jugador está en Ansiedad, dos cartas tapadas se mezclan (la ansiedad confunde).
 public class MemoryMinigame : MinigameBase
 {
@@ -35,6 +35,9 @@ public class MemoryMinigame : MinigameBase
     [SerializeField] private Color shownColor = new Color(0.3f, 0.38f, 0.7f);
     [SerializeField] private Color matchedColor = new Color(0.2f, 0.5f, 0.35f);
 
+    protected override string HowToPlay =>
+        $"Da vuelta dos cartas y une cada instrucción con su significado.\nSi no coinciden, se vuelven a tapar.\n\n< > recorre las cartas     {ControlPlatform.InteractHint} da vuelta";
+
     private string[] faces;
     private int[] pairOf;
     private bool[] shown;
@@ -45,7 +48,7 @@ public class MemoryMinigame : MinigameBase
     {
         Deal();
         string key = ControlPlatform.InteractHint;
-        promptText.text = "Une cada hueso con la zona del cuerpo donde está";
+        promptText.text = "Une cada instrucción con lo que significa";
         feedbackText.text = $"< > recorre las cartas   {key} da vuelta";
         int misses = 0;
         int found = 0;
@@ -104,11 +107,11 @@ public class MemoryMinigame : MinigameBase
         progressText.text = $"Pares: {found}/{pairs.Length}   Errores: {misses}";
         bool good = misses <= goodMisses;
         promptText.text = good ? "¡Repaso completo!" : "Repaso terminado.";
-        feedbackText.text = good ? "Te sientes list@ para el parcial práctico." : "Te costó, pero ya reconoces todos los huesos.";
+        feedbackText.text = good ? "Te sientes list@ para el parcial práctico." : "Te costó, pero ya reconoces todas las instrucciones.";
         result(good ? reliefPerfect : reliefPerfect * 0.3f);
     }
 
-    // Reparte las cartas mezcladas: cada par aporta dos (hueso y zona)
+    // Reparte las cartas mezcladas: cada par aporta dos (instrucción y significado)
     private void Deal()
     {
         int count = pairs.Length * 2;
