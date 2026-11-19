@@ -97,9 +97,9 @@ public class ProgressNotices : MonoBehaviour
     {
         while (true)
         {
-            // Se espera a que no haya diálogo, minijuego ni pantalla final encima
+            // Se espera a que no haya diálogo, minijuego, pausa ni pantalla final encima
             bool busy = queue.Count == 0 || DialogueBox.IsOpen || MinigameBase.AnyOpen || BreathingMinigame.IsOpen
-                || (LevelFlow.Instance != null && LevelFlow.Instance.IsOver);
+                || PauseMenu.IsPaused || (LevelFlow.Instance != null && LevelFlow.Instance.IsOver);
             if (busy)
             {
                 yield return null;
@@ -109,8 +109,13 @@ public class ProgressNotices : MonoBehaviour
             titleText.text = title;
             bodyText.text = body;
             yield return Fade(0f, 1f);
-            for (float t = 0f; t < showSeconds && !DialogueBox.IsOpen && !MinigameBase.AnyOpen; t += Time.unscaledDeltaTime)
+            // En pausa el aviso se queda quieto: su tiempo en pantalla no corre detrás del menú
+            for (float t = 0f; t < showSeconds && !DialogueBox.IsOpen && !MinigameBase.AnyOpen; )
             {
+                if (!PauseMenu.IsPaused)
+                {
+                    t += Time.unscaledDeltaTime;
+                }
                 yield return null;
             }
             yield return Fade(1f, 0f);
