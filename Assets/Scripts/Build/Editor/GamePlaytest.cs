@@ -419,6 +419,7 @@ public static class GamePlaytest
         if (game != null)
         {
             report.Add($"  Minijuego {game.GetType().Name} ({id})");
+            yield return CloseIntro(game);
             yield return Solve(game);
             while (game.IsOpen)
             {
@@ -525,6 +526,27 @@ public static class GamePlaytest
     // ================================================================
     // Minijuegos: se juegan leyendo su estado, como lo vería el jugador
     // ================================================================
+
+    // La tarjeta "CÓMO SE JUEGA" tapa el minijuego hasta presionar Interactuar
+    private static IEnumerator CloseIntro(MinigameBase game)
+    {
+        GameObject intro = Get(game, "introGroup") as GameObject;
+        for (int i = 0; i < 120 && intro != null && !intro.activeInHierarchy; i++)
+        {
+            yield return null;
+        }
+        if (intro == null || !intro.activeInHierarchy)
+        {
+            yield break;
+        }
+        Check(true, $"{game.GetType().Name} muestra sus instrucciones");
+        yield return Press(Key.E);
+        for (int i = 0; i < 60 && intro.activeInHierarchy; i++)
+        {
+            yield return null;
+        }
+        Check(!intro.activeInHierarchy, $"{game.GetType().Name}: Interactuar cierra las instrucciones");
+    }
 
     private static IEnumerator Solve(MinigameBase game)
     {
