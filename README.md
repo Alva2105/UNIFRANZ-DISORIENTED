@@ -171,3 +171,22 @@ Assets/
     ├── Personajes/     Hojas de los protagonistas y de los NPCs.
     └── UI/             Menús, laptop de pausa y barra de ansiedad.
 ```
+
+---
+
+## Créditos y atribuciones
+
+Este videojuego es un proyecto académico del equipo integrado por **Alvaro Del Carpio (Alva2105), Carlos Valverde (NazoVruytX), Eduardo Condoreno (EduardoC2006) y Jhoel Herrera (MrPirate-29)**. El equipo es responsable del código, diseño de niveles, personajes, interfaz, narrativa y recursos gráficos propios de **UNIFRANZ: DESORIENTED**.
+
+Se utilizaron los siguientes recursos de terceros, identificados en el repositorio:
+
+| Recurso | Autor o fuente | Uso y licencia |
+|---|---|---|
+| “In the Lobby” | Umplix — [OpenGameArt](https://opengameart.org/content/in-the-lobby) | Música de recepción (\`Assets/Audio/Music/musica_recepcion_lobby.wav\`). CC0; convertida a mono de 16 bits. |
+| “Impact Sounds” | Kenney — [kenney.nl](https://kenney.nl/assets/impact-sounds) | Pasos sobre concreto e impactos (\`Assets/Audio/SFX/footstep_concrete_000-004.ogg\`, \`impactSoft_heavy_000-001.ogg\`). CC0. |
+| “Interface Sounds” | Kenney — [kenney.nl](https://kenney.nl/assets/interface-sounds) | Sonidos de selección, confirmación, error, señal y caída (\`Assets/Audio/SFX/select_002.ogg\`, \`confirmation_002.ogg\`, \`confirmation_004.ogg\`, \`error_004.ogg\`, \`bong_001.ogg\`, \`drop_002.ogg\`). CC0. |
+
+El detalle de archivos y atribuciones de audio se conserva también en [\`Assets/Audio/CREDITOS_AUDIO.txt\`](Assets/Audio/CREDITOS_AUDIO.txt). Las licencias CC0 permiten reutilizar estos recursos sin obligación de atribución; se incluyen aquí los créditos por transparencia.
+
+En los archivos de documentación consultados no se identificaron otras fuentes externas para los recursos gráficos. Si se incorporan assets de terceros, deben añadirse aquí el autor, la fuente, la licencia y los archivos donde se usan, además de conservar su aviso o licencia correspondiente en el repositorio.
+
