@@ -98,3 +98,4 @@ public class NpcAnimation : MonoBehaviour
         sprite.flipX = right != artFacesRight;
     }
 }
+//corregido observaciones de npc cain despues de un rato 
