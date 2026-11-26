@@ -446,6 +446,8 @@ public static class GameSceneBuilder
         AddShadow(titleText.gameObject);
         TextMeshProUGUI messageText = CreateText("Mensaje", root, message, 22f, TextLight, TextAlignmentOptions.Center);
         Centered(messageText.rectTransform, new Vector2(0f, 110f), new Vector2(1500f, 80f));
+        // Con la fuente pixel las líneas se pisan si el mensaje ocupa más de una
+        messageText.lineSpacing = 30f;
 
         retryButton = null;
         float y = -40f;
