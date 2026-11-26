@@ -115,7 +115,8 @@ internal static class UxSceneBuilder
         card.anchorMin = card.anchorMax = card.pivot = new Vector2(0.5f, 0.5f);
         card.anchoredPosition = new Vector2(0f, -40f);
         card.sizeDelta = new Vector2(1700f, 640f);
-        card.gameObject.AddComponent<Image>().color = new Color(0.04f, 0.05f, 0.12f, 0.98f);
+        // Opaca: la barra de tiempo y las casillas del minijuego no deben verse a través
+        card.gameObject.AddComponent<Image>().color = new Color(0.04f, 0.05f, 0.12f, 1f);
         card.SetAsLastSibling();
         TextMeshProUGUI text = H.CreateLabel(card, "Texto", font, "", 24f, TextLight, 0f);
         text.rectTransform.sizeDelta = new Vector2(1500f, 520f);
