@@ -54,6 +54,17 @@ public class ProgressNotices : MonoBehaviour
 
     private void Update()
     {
+        // La pantalla final (victoria o crisis) queda sola: el aviso que estaba a la
+        // vista se quita y ya no se muestran los que quedaban en cola
+        if (LevelFlow.Instance != null && LevelFlow.Instance.IsOver)
+        {
+            StopAllCoroutines();
+            queue.Clear();
+            group.alpha = 0f;
+            enabled = false;
+            return;
+        }
+
         FloorLabel floor = FloorLabel.At(floors, player.position.x);
         if (floor != null && floor != currentFloor)
         {
